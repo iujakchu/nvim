@@ -4,7 +4,7 @@ sudo pacman -S ripgrep fd glow plocate
 cargo install stylua 
 ```
 # TODO
-- [ ] alpha startup 
-- [ ] friendly_snip
+- [x] alpha startup 
+- [x] friendly_snip
 - [ ] refactor
 - [ ] which-key bindings
