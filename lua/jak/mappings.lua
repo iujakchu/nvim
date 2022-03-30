@@ -35,12 +35,12 @@ map("n", "<leader>p", "<cmd>HopPattern<CR>")
 map(
 	"n",
 	"<leader>f",
-	":lua require'telescope.builtin'.find_files({ require('telescope.themes').get_ivy({}) ,search_dirs={'.local','.config'}})<cr>"
+	":lua require'telescope.builtin'.find_files({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'}})<cr>"
 )
 map(
 	"n",
 	"<leader>g",
-	":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}),search_dirs={'.local','.config'})<cr>"
+	":lua require'telescope.builtin'.live_grep({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'} })<cr>"
 )
 map("n", "<leader>b", ":Telescope buffers<CR>")
 map("n", "<leader>rp", ":Telescope projects<CR>")
