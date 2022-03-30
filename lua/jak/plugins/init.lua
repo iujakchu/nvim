@@ -160,7 +160,7 @@ local plugins = {
 	{
 		"goolord/alpha-nvim",
 		config = function()
-			require("alpha").setup(require("alpha.themes.startify").opts)
+			require("jak.setup.alpha")
 		end,
 	},
 	{
