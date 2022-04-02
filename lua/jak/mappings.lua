@@ -60,7 +60,7 @@ map("", "s", ":TranslateW --engines=bing,youdao,haici<CR>")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
-map("n", "<leader>e", ":NnnExplorer<CR>")
+map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<leader>r", ':lua require("rust-tools.runnables").runnables()<CR>')
 
 cmd("silent! command PackerClean lua require 'jak.plugins' require('packer').clean()")
