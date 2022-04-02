@@ -19,7 +19,7 @@ local opt = {
 	splitbelow = true,
 	splitright = true,
 	termguicolors = true,
-	whichwrap = "h,l",
+	-- whichwrap = "h,l",
 }
 for key, value in pairs(opt) do
 	vim.o[key] = value

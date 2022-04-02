@@ -13,7 +13,7 @@ local function footer()
 	local version = vim.version()
 	local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
 
-	return datetime .. "   " .. nvim_version_info
+	return datetime .. "  " .. nvim_version_info
 end
 
 local logo = {

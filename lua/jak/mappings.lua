@@ -4,6 +4,11 @@ local map = function(mode, mapper, mapee)
 	return vim.api.nvim_set_keymap(mode, mapper, mapee, default_opts)
 end
 
+function Run()
+	if vim.bo.filetype == "rust" then
+		require("rust-tools.runnables").runnables()
+	end
+end
 map("n", " ", "<NOP>")
 vim.g["mapleader"] = " "
 
@@ -14,7 +19,7 @@ map("n", "S", ":w<CR>")
 
 map("", "J", "5j")
 map("", "K", "5k")
-map("n", "H", "0w")
+map("n", "H", "0")
 map("n", "L", "$")
 map("n", "B", ":bdelete<CR>")
 
@@ -24,8 +29,8 @@ map("n", "<C-t>", ":tabe<CR>")
 map("n", "<leader>-", ":-tabnext<CR>")
 map("n", "<leader>=", ":+tabnext<CR>")
 
-map("n", "U", ":BufferLineCyclePrev<CR>")
-map("n", "I", ":BufferLineCycleNext<CR>")
+map("n", "-", ":BufferLineCyclePrev<CR>")
+map("n", "=", ":BufferLineCycleNext<CR>")
 map("n", "<C-c>", ":BufferLinePickClose<CR>")
 
 map("n", "<leader>w", "<cmd>HopWord<CR>")
@@ -55,10 +60,9 @@ map("", "s", ":TranslateW --engines=bing,youdao,haici<CR>")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
-map("n", "-", "<ScrollWheelDown>")
-map("n", "=", "<ScrollWheelUp>")
-
 map("n", "<leader>e", ":NnnExplorer<CR>")
+map("n", "<leader>r", ':lua require("rust-tools.runnables").runnables()<CR>')
+
 cmd("silent! command PackerClean lua require 'jak.plugins' require('packer').clean()")
 cmd("silent! command PackerCompile lua require 'jak.plugins' require('packer').compile()")
 cmd("silent! command PackerInstall lua require 'jak.plugins' require('packer').install()")

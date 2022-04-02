@@ -57,9 +57,12 @@ local plugins = {
 	},
 
 	{
-		"luukvbaal/nnn.nvim",
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons", -- optional, for file icon
+		},
 		config = function()
-			require("nnn").setup()
+			require("nvim-tree").setup({})
 		end,
 	},
 	{ "neovim/nvim-lspconfig" },
@@ -92,9 +95,7 @@ local plugins = {
 		config = [[require('jak.setup.cmp')]],
 	},
 
-	-- use {"simrat39/rust-tools.nvim", config = [[require('rust-tools').setup({})]]}
-
-	-- use "rust-lang/rust.vim"
+	{ "simrat39/rust-tools.nvim", config = [[require('rust-tools').setup({})]] },
 
 	{ "windwp/nvim-autopairs", config = [[require('nvim-autopairs').setup({ map_cr = true })]] },
 
