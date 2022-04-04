@@ -34,7 +34,7 @@ dashboard.section.header.val = logo
 dashboard.section.header.opts.hl = "Red"
 
 dashboard.section.buttons.val = {
-	dashboard.button("<Leader>e", "  NNN"),
+	dashboard.button("<Leader>e", "  Exp"),
 	dashboard.button("<Leader>f", "  Find File"),
 	dashboard.button("<Leader>g", "  Live Grep"),
 	dashboard.button("Q", "  Quit"),

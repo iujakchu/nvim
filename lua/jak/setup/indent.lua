@@ -28,5 +28,4 @@ vim.g.indent_blankline_filetype_exclude = {
 	"packer",
 	"NvimTree",
 	"lsp-installer",
-	"nnn",
 }
