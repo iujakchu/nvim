@@ -224,6 +224,7 @@ local plugins = {
 		cmd = "CodeActionMenu",
 	},
 	{ "voldikss/vim-translator" },
+	{ "gcmt/wildfire.vim" },
 }
 return packer.startup(function(use)
 	for _, v in ipairs(plugins) do
