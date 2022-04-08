@@ -89,7 +89,7 @@ local plugins = {
 			"Saecki/crates.nvim",
 			"f3fora/cmp-spell",
 			"L3MON4D3/LuaSnip",
-			"zbirenbaum/copilot-cmp",
+			-- "zbirenbaum/copilot-cmp",
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
@@ -226,15 +226,15 @@ local plugins = {
 	},
 	{ "voldikss/vim-translator" },
 	{ "gcmt/wildfire.vim" },
-	{
-		"zbirenbaum/copilot.lua",
-		event = "InsertEnter",
-		config = function()
-			vim.schedule(function()
-				require("copilot").setup()
-			end)
-		end,
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		vim.schedule(function()
+	-- 			require("copilot").setup()
+	-- 		end)
+	-- 	end,
+	-- },
 }
 return packer.startup(function(use)
 	for _, v in ipairs(plugins) do
