@@ -10,6 +10,24 @@ extra.sumneko_lua = {
 		},
 	},
 }
+
+local servers = {
+	"bashls",
+	"pyright",
+	"vuels",
+	"rust_analyzer",
+	"cssls",
+	"sumneko_lua",
+}
+
+for _, name in pairs(servers) do
+	local server_is_found, server = lsp_installer.get_server(name)
+	if server_is_found and not server:is_installed() then
+		print("Installing " .. name)
+		server:install()
+		print("Installed " .. name)
+	end
+end
 local function on_attach(client, bufnr)
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)

@@ -56,6 +56,7 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
+map("n", "<leader>j", ":Telescope emoji search<CR>")
 map("n", "<leader>r", ':lua require("rust-tools.runnables").runnables()<CR>')
 
 cmd("silent! command PackerCompile lua require 'jak.plugins' require('packer').compile()")
