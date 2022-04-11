@@ -5,4 +5,4 @@ vim.api.nvim_set_keymap("n", "fe", ":FlutterEmulators<CR>", { noremap = true, si
 vim.api.nvim_set_keymap("n", "frl", ":FlutterReload<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "frs", ":FlutterRestart<CR>", { noremap = true, silent = true })
 
-require("flutter-tools").setup({})
+require("flutter-tools").setup {}

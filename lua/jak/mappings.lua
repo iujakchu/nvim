@@ -1,7 +1,7 @@
 local cmd = vim.cmd
 local default_opts = { noremap = true, silent = true }
 local map = function(mode, mapper, mapee)
-	return vim.api.nvim_set_keymap(mode, mapper, mapee, default_opts)
+   return vim.api.nvim_set_keymap(mode, mapper, mapee, default_opts)
 end
 
 map("n", " ", "<NOP>")
@@ -34,16 +34,16 @@ map("n", "<leader>l", "<cmd>HopLine<CR>")
 map("n", "<leader>p", "<cmd>HopPattern<CR>")
 
 map(
-	"n",
-	"<leader>f",
-	":lua require'telescope.builtin'.find_files({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'}})<cr>"
+   "n",
+   "<leader>f",
+   ":lua require'telescope.builtin'.find_files({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'}})<cr>"
 )
 map(
-	"n",
-	"<leader>g",
-	":lua require'telescope.builtin'.live_grep({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'} })<cr>"
+   "n",
+   "<leader>g",
+   ":lua require'telescope.builtin'.live_grep({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'} })<cr>"
 )
-map("n", "<leader>b", ":Telescope buffers<CR>")
+map("n", "<leader>h", ":Telescope help_tags<CR>")
 map("n", "<leader>rp", ":Telescope projects<CR>")
 map("n", "<leader>n", ":Telescope neoclip<CR>")
 
@@ -60,6 +60,6 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<leader>j", ":Telescope emoji search<CR>")
 map("n", "<leader>r", ':lua require("rust-tools.runnables").runnables()<CR>')
 
-cmd("silent! command PackerCompile lua require 'jak.plugins' require('packer').compile()")
-cmd("silent! command PackerStatus lua require 'jak.plugins' require('packer').status()")
-cmd("silent! command PackerSync lua require 'jak.plugins' require('packer').sync()")
+cmd "silent! command PackerCompile lua require 'jak.plugins' require('packer').compile()"
+cmd "silent! command PackerStatus lua require 'jak.plugins' require('packer').status()"
+cmd "silent! command PackerSync lua require 'jak.plugins' require('packer').sync()"

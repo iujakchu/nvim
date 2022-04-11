@@ -1,4 +1,4 @@
-vim.cmd([[
+vim.cmd [[
 nnoremap <silent> ct :lua require('crates').toggle()<cr>
 nnoremap <silent> cr :lua require('crates').reload()<cr>
 
@@ -11,6 +11,6 @@ nnoremap <silent> ca :lua require('crates').update_all_crates()<cr>
 nnoremap <silent> cU :lua require('crates').upgrade_crate()<cr>
 vnoremap <silent> cU :lua require('crates').upgrade_crates()<cr>
 nnoremap <silent> cA :lua require('crates').upgrade_all_crates()<cr>
-]])
+]]
 
 require("crates").setup()
