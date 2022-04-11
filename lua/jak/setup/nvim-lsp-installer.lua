@@ -16,6 +16,7 @@ local servers = {
    "pyright",
    "vuels",
    "rust_analyzer",
+   "clangd",
    "cssls",
    "sumneko_lua",
 }
@@ -25,7 +26,6 @@ for _, name in pairs(servers) do
    if server_is_found and not server:is_installed() then
       print("Installing " .. name)
       server:install()
-      print("Installed " .. name)
    end
 end
 local function on_attach(client, bufnr)

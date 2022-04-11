@@ -109,6 +109,15 @@ local plugins = {
    {
       "nvim-telescope/telescope.nvim",
       requires = { "nvim-lua/plenary.nvim" },
+      config = function()
+         require("telescope").setup {
+            extensions = {
+               file_browser = {
+                  theme = "ivy",
+               },
+            },
+         }
+      end,
    },
 
    {
@@ -232,6 +241,38 @@ local plugins = {
    },
    { "voldikss/vim-translator" },
    { "gcmt/wildfire.vim" },
+   { "stevearc/dressing.nvim" },
+   {
+      "klen/nvim-test",
+      config = function()
+         require("nvim-test").setup()
+      end,
+   },
+   {
+      "nvim-telescope/telescope-file-browser.nvim",
+      config = function()
+         require("telescope").load_extension "file_browser"
+      end,
+   },
+   {
+      "nvim-telescope/telescope-ui-select.nvim",
+      config = function()
+         require("telescope").load_extension "ui-select"
+      end,
+   },
+   {
+      "ray-x/lsp_signature.nvim",
+      config = function() end,
+   },
+   {
+      "rmagatti/session-lens",
+      requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+      config = function()
+         require("session-lens").setup {--[[your custom config--]]
+         }
+      end,
+   },
+   { "ellisonleao/glow.nvim" },
    -- {
    -- 	"zbirenbaum/copilot.lua",
    -- 	event = "InsertEnter",

@@ -31,7 +31,6 @@ map("n", "<C-c>", ":BufferLinePickClose<CR>")
 
 map("n", "<leader>w", "<cmd>HopWord<CR>")
 map("n", "<leader>l", "<cmd>HopLine<CR>")
-map("n", "<leader>p", "<cmd>HopPattern<CR>")
 
 map(
    "n",
@@ -44,8 +43,12 @@ map(
    ":lua require'telescope.builtin'.live_grep({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'} })<cr>"
 )
 map("n", "<leader>h", ":Telescope help_tags<CR>")
-map("n", "<leader>rp", ":Telescope projects<CR>")
+-- map("n", "<leader>p", ":Telescope projects<CR>")
+map("n", "<leader>p", ":Glow<CR>")
 map("n", "<leader>n", ":Telescope neoclip<CR>")
+map("n", "<leader>j", ":Telescope emoji search<CR>")
+map("n", "<leader>b", ":Telescope file_browser<CR>")
+map("n", "<C-s>", ":Telescope session-lens search_session<CR>")
 
 map("n", "<leader>a", ":CodeActionMenu<CR>")
 
@@ -57,7 +60,6 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
-map("n", "<leader>j", ":Telescope emoji search<CR>")
 map("n", "<leader>r", ':lua require("rust-tools.runnables").runnables()<CR>')
 
 cmd "silent! command PackerCompile lua require 'jak.plugins' require('packer').compile()"

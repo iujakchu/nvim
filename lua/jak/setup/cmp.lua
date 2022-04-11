@@ -122,3 +122,4 @@ cmp.setup {
       native_menu = false,
    },
 }
+require("lsp_signature").setup {}
