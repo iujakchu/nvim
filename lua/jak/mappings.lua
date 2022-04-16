@@ -60,8 +60,21 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
-map("n", "<leader>r", ':lua require("rust-tools.runnables").runnables()<CR>')
+map("n", "<leader>rr", ':lua require("rust-tools.runnables").runnables()<CR>')
 
+map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+map("n", "r", "<cmd>lua vim.lsp.buf.hover()<CR>")
+map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+map("n", "<C-r>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+map("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
+map("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
+map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>")
+map("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')
+map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 cmd "silent! command PackerCompile lua require 'jak.plugins' require('packer').compile()"
 cmd "silent! command PackerStatus lua require 'jak.plugins' require('packer').status()"
 cmd "silent! command PackerSync lua require 'jak.plugins' require('packer').sync()"
