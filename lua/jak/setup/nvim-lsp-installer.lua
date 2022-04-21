@@ -16,6 +16,8 @@ local servers = {
    "pyright",
    "vuels",
    "rust_analyzer",
+   "slint_lsp",
+   "denols",
    "clangd",
    "cssls",
    "sumneko_lua",

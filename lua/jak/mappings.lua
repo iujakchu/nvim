@@ -32,6 +32,11 @@ map("n", "<C-c>", ":BufferLinePickClose<CR>")
 map("n", "<leader>w", "<cmd>HopWord<CR>")
 map("n", "<leader>l", "<cmd>HopLine<CR>")
 
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-l>", "<C-w>l")
+
 map(
    "n",
    "<leader>f",

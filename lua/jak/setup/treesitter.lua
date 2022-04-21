@@ -10,6 +10,7 @@ require("nvim-treesitter.configs").setup {
       "markdown",
       "c",
       "cpp",
+      "slint",
       "dart",
       "lua",
       "python",
