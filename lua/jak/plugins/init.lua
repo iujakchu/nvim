@@ -121,12 +121,6 @@ local plugins = {
    },
 
    {
-      "akinsho/flutter-tools.nvim",
-      requires = "nvim-lua/plenary.nvim",
-      config = [[require("jak.setup.flutter-tools")]],
-   },
-
-   {
       "xiyaowong/telescope-emoji.nvim",
       config = function()
          require("telescope").load_extension "emoji"
