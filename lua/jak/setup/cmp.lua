@@ -5,7 +5,7 @@ local check_backspace = function()
    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load { paths = vim.fn.stdpath "config" .. "/snippets" }
 --   פּ ﯟ   some other good icons
 local kind_icons = {
    Text = "",

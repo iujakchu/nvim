@@ -91,7 +91,6 @@ local plugins = {
          "L3MON4D3/LuaSnip",
          -- "zbirenbaum/copilot-cmp",
          "saadparwaiz1/cmp_luasnip",
-         "rafamadriz/friendly-snippets",
       },
       config = [[require('jak.setup.cmp')]],
    },
