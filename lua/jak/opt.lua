@@ -1,5 +1,5 @@
 local opt = {
-   clipboard = "unnamed",
+   clipboard = "unnamed,unnamedplus",
    ruler = false,
    mouse = "a",
    wildignorecase = true,
