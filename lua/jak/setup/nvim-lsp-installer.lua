@@ -10,7 +10,15 @@ extra.sumneko_lua = {
       },
    },
 }
-
+lsp_installer.settings {
+   ui = {
+      icons = {
+         server_installed = "😆",
+         server_pending = "😍",
+         server_uninstalled = "😢",
+      },
+   },
+}
 local servers = {
    "bashls",
    "pyright",

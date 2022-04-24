@@ -81,12 +81,10 @@ require("formatter").setup {
    },
 }
 
-vim.api.nvim_exec(
-   [[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.ts,*.rs,*.lua,*.cpp,*.hpp,*.h,*.c,*.json,*.dart FormatWrite
-augroup END
-]],
-   true
-)
+vim.api.nvim_create_augroup("FormatAutogroup", {
+   clear = true,
+})
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+   pattern = "*.ts,*.rs,*.lua,*.cpp,*.hpp,*.h,*.c,*.json,*.dart",
+   command = "FormatWrite",
+})

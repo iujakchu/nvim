@@ -36,6 +36,7 @@ local plugins = {
    { "tpope/vim-surround" },
    { "tpope/vim-eunuch" },
    { "lewis6991/impatient.nvim" },
+   -- TODO
    {
       "nvim-neorg/neorg",
       config = function()
@@ -49,10 +50,12 @@ local plugins = {
                      },
                   },
                },
+               ["core.gtd.base"] = { config = { workspace = "work" } },
+               ["core.norg.concealer"] = {},
+               ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
             },
          }
       end,
-      ft = "neorg",
       requires = "nvim-lua/plenary.nvim",
    },
 
@@ -89,13 +92,14 @@ local plugins = {
          "Saecki/crates.nvim",
          "f3fora/cmp-spell",
          "L3MON4D3/LuaSnip",
-         -- "zbirenbaum/copilot-cmp",
+         "zbirenbaum/copilot-cmp",
          "saadparwaiz1/cmp_luasnip",
       },
       config = [[require('jak.setup.cmp')]],
    },
 
-   { "simrat39/rust-tools.nvim", config = [[require('rust-tools').setup({})]] },
+   -- TODO
+   -- { "simrat39/rust-tools.nvim", config = [[require('rust-tools').setup({})]] },
 
    { "windwp/nvim-autopairs", config = [[require('nvim-autopairs').setup({ map_cr = true })]] },
 
@@ -179,7 +183,12 @@ local plugins = {
       config = [[require("jak.setup.markdown-preview")]],
       ft = "markdown",
    },
-   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require("jak.setup.treesitter")]] },
+   {
+      "nvim-treesitter/nvim-treesitter",
+      before = "neorg",
+      run = ":TSUpdate",
+      config = [[require("jak.setup.treesitter")]],
+   },
    {
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim" },
@@ -220,6 +229,7 @@ local plugins = {
       requires = "kyazdani42/nvim-web-devicons",
       config = [[require("bufferline").setup()]],
    },
+   -- TODO
    {
       "saecki/crates.nvim",
       event = { "BufRead Cargo.toml" },
@@ -266,15 +276,15 @@ local plugins = {
       end,
    },
    { "ellisonleao/glow.nvim" },
-   -- {
-   -- 	"zbirenbaum/copilot.lua",
-   -- 	event = "InsertEnter",
-   -- 	config = function()
-   -- 		vim.schedule(function()
-   -- 			require("copilot").setup()
-   -- 		end)
-   -- 	end,
-   -- },
+   {
+      "zbirenbaum/copilot.lua",
+      event = "InsertEnter",
+      config = function()
+         vim.schedule(function()
+            require("copilot").setup()
+         end)
+      end,
+   },
 }
 return packer.startup(function(use)
    for _, v in ipairs(plugins) do

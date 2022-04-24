@@ -45,4 +45,7 @@ dashboard.section.footer.opts.hl = "Constant"
 
 alpha.setup(dashboard.opts)
 
-vim.cmd [[ autocmd FileType alpha setlocal nofoldenable ]]
+vim.api.nvim_create_autocmd("FileType", {
+   pattern = "alpha",
+   command = "setlocal nofoldenable",
+})

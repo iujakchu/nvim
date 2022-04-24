@@ -1,10 +1,10 @@
 local opt = {
-   clipboard = "unnamedplus",
+   clipboard = "unnamed",
    ruler = false,
    mouse = "a",
    wildignorecase = true,
    swapfile = false,
-   completeopt =  "menuone,noselect" ,
+   completeopt = "menu,menuone,noselect",
    writebackup = false,
    ignorecase = true,
    smartcase = true,
