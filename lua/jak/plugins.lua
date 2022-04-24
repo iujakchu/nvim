@@ -56,7 +56,7 @@ local plugins = {
             },
          }
       end,
-      requires = "nvim-lua/plenary.nvim",
+      requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
    },
 
    {
@@ -111,42 +111,41 @@ local plugins = {
 
    {
       "nvim-telescope/telescope.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
-      config = function()
-         require("telescope").setup {
-            extensions = {
-               file_browser = {
-                  theme = "ivy",
-               },
-            },
-         }
-      end,
-   },
-
-   {
-      "xiyaowong/telescope-emoji.nvim",
-      config = function()
-         require("telescope").load_extension "emoji"
-      end,
-   },
-   {
-      "AckslD/nvim-neoclip.lua",
       requires = {
-         { "nvim-telescope/telescope.nvim" },
+         "nvim-lua/plenary.nvim",
+         "benfowler/telescope-luasnip.nvim",
+         "xiyaowong/telescope-emoji.nvim",
+         "AckslD/nvim-neoclip.lua",
+         "ahmedkhalf/project.nvim",
+         "nvim-telescope/telescope-file-browser.nvim",
+         "nvim-telescope/telescope-ui-select.nvim",
+         "cljoly/telescope-repo.nvim",
+         "LinArcX/telescope-env.nvim",
+         "olacin/telescope-gitmoji.nvim",
+         "LinArcX/telescope-ports.nvim",
       },
       config = function()
-         require("telescope").load_extension "neoclip"
-         require("neoclip").setup()
+         require "jak.setup.telescope"
       end,
    },
+   {
+      "pwntester/octo.nvim",
+      requires = {
+         "nvim-lua/plenary.nvim",
+         "nvim-telescope/telescope.nvim",
+         "kyazdani42/nvim-web-devicons",
+      },
+      config = function()
+         require("octo").setup()
+      end,
+   },
+   -- { "ThePrimeagen/harpoon" },
    { "sainnhe/edge", config = [[require("jak.setup.edge")]] },
    {
       "feline-nvim/feline.nvim",
-      -- your statusline
       config = function()
-         require("feline").setup()
+         require "jak.setup.feline"
       end,
-      -- some optional icons
       requires = { "kyazdani42/nvim-web-devicons" },
    },
    {
@@ -199,20 +198,6 @@ local plugins = {
    -- { "karb94/neoscroll.nvim", config = [[require('neoscroll').setup()]] },
    { "akinsho/toggleterm.nvim", config = [[require("jak.setup.toggleterm")]] },
    { "rcarriga/nvim-notify" },
-   {
-      "ahmedkhalf/project.nvim",
-      config = function()
-         require("telescope").load_extension "projects"
-         require("project_nvim").setup {
-            manual_mode = true,
-            update_cwd = true,
-            update_focused_file = {
-               enable = true,
-               update_cwd = true,
-            },
-         }
-      end,
-   },
    { "antoinemadec/FixCursorHold.nvim" },
    {
       "folke/which-key.nvim",
@@ -249,18 +234,6 @@ local plugins = {
       "klen/nvim-test",
       config = function()
          require("nvim-test").setup()
-      end,
-   },
-   {
-      "nvim-telescope/telescope-file-browser.nvim",
-      config = function()
-         require("telescope").load_extension "file_browser"
-      end,
-   },
-   {
-      "nvim-telescope/telescope-ui-select.nvim",
-      config = function()
-         require("telescope").load_extension "ui-select"
       end,
    },
    {
