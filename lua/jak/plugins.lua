@@ -68,16 +68,22 @@ local plugins = {
          require("nvim-tree").setup {}
       end,
    },
-   { "neovim/nvim-lspconfig" },
    {
-      "williamboman/nvim-lsp-installer",
-      requires = {
-         "neovim/nvim-lspconfig",
-      },
+      "neovim/nvim-lspconfig",
       config = function()
-         require "jak.setup.nvim-lsp-installer"
+         require "jak.setup.lspconfig"
       end,
    },
+
+   -- {
+   --    "williamboman/nvim-lsp-installer",
+   --    requires = {
+   --       "neovim/nvim-lspconfig",
+   --    },
+   --    config = function()
+   --       require "jak.setup.nvim-lsp-installer"
+   --    end,
+   -- },
 
    {
       "hrsh7th/nvim-cmp",
@@ -99,7 +105,7 @@ local plugins = {
    },
 
    -- TODO
-   -- { "simrat39/rust-tools.nvim", config = [[require('rust-tools').setup({})]] },
+   { "simrat39/rust-tools.nvim", config = [[require('rust-tools').setup({})]] },
 
    { "windwp/nvim-autopairs", config = [[require('nvim-autopairs').setup({ map_cr = true })]] },
 
