@@ -1,36 +1,38 @@
-local lsp = require "lspconfig"
-
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-lsp.sumneko_lua.setup {
-   capabilities = capabilities,
-   settings = {
-      Lua = {
-         diagnostics = {
-            globals = { "vim" },
+local servers = {
+   sumneko_lua = {
+      capabilities = capabilities,
+      settings = {
+         Lua = {
+            diagnostics = {
+               globals = { "vim" },
+            },
          },
       },
    },
-}
-
-lsp.rust_analyzer.setup {
-   capabilities = capabilities,
-   settings = {
-      ["rust-analyzer"] = {
-         -- cargo = { loadOutDirsFromCheck = true },
-         -- procMacro = { enable = true },
-         -- hoverActions = { references = true },
-         -- checkOnSave = {
-         --    command = "clippy",
-         -- },
-         -- inlayHints = {
-         --    parameterHints = true,
-         --    closureReturnTypes = true,
-         -- },
+   rust_analyzer = {
+      capabilities = capabilities,
+      settings = {
+         ["rust-analyzer"] = {
+            -- cargo = { loadOutDirsFromCheck = true },
+            -- procMacro = { enable = true },
+            -- hoverActions = { references = true },
+            -- checkOnSave = {
+            --    command = "clippy",
+            -- },
+            -- inlayHints = {
+            --    parameterHints = true,
+            --    closureReturnTypes = true,
+            -- },
+         },
       },
    },
+   pyright = { capabilities = capabilities },
+   clangd = { capabilities = capabilities },
+   denols = { capabilities = capabilities },
+   slint_lsp = { capabilities = capabilities },
+   bashls = { capabilities = capabilities },
 }
-require("lspconfig").pyright.setup {}
-require("lspconfig").clangd.setup {}
-require("lspconfig").denols.setup {}
-require("lspconfig").slint_lsp.setup {}
-require("lspconfig").bashls.setup {}
+for client, setup in pairs(servers) do
+   require("lspconfig")[client].setup(setup)
+end

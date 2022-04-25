@@ -175,4 +175,4 @@ cmp.setup {
    },
 }
 require("lsp_signature").setup {}
-require("luasnip.loaders.from_lua").load {}
+require("luasnip.loaders.from_lua").lazy_load {}
