@@ -12,6 +12,8 @@ map("n", "<ESC>", ":noh<CR>")
 map("n", "Q", ":q<CR>")
 map("n", "S", ":w<CR>")
 map("n", "w", ":HopWord<CR>")
+map("n", "tt", ":TroubleToggle<CR>")
+map("n", "td", ":TodoTelescope<CR>")
 
 map("", "J", "5j")
 map("", "K", "5k")

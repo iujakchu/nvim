@@ -36,7 +36,7 @@ local plugins = {
    { "tpope/vim-surround" },
    { "tpope/vim-eunuch" },
    { "lewis6991/impatient.nvim" },
-   -- TODO
+   -- TODO:
    {
       "nvim-neorg/neorg",
       config = function()
@@ -146,14 +146,6 @@ local plugins = {
       end,
    },
    -- { "ThePrimeagen/harpoon" },
-   { "sainnhe/edge", config = [[require("jak.setup.edge")]] },
-   {
-      "feline-nvim/feline.nvim",
-      config = function()
-         require "jak.setup.feline"
-      end,
-      requires = { "kyazdani42/nvim-web-devicons" },
-   },
    {
       "simrat39/symbols-outline.nvim",
       config = [[require('jak.setup.symbols-outline')]],
@@ -254,7 +246,29 @@ local plugins = {
          }
       end,
    },
+   {
+      "nvim-lualine/lualine.nvim",
+      config = function()
+         require("lualine").setup {
+            options = {
+               theme = "onedark",
+            },
+         }
+      end,
+   },
    { "ellisonleao/glow.nvim" },
+   {
+      "folke/tokyonight.nvim",
+   },
+   {
+      "navarasu/onedark.nvim",
+      config = function()
+         require("onedark").setup {
+            style = "deep",
+         }
+         require("onedark").load()
+      end,
+   },
    {
       "zbirenbaum/copilot.lua",
       event = "InsertEnter",
@@ -262,6 +276,24 @@ local plugins = {
          vim.schedule(function()
             require("copilot").setup()
          end)
+      end,
+   },
+   {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+         require("trouble").setup {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+         }
+      end,
+   },
+   {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require "jak.setup.todo-comments"
       end,
    },
 }
