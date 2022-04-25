@@ -35,23 +35,23 @@ local servers = {
          },
       },
    },
-   rust_analyzer = {
-      capabilities = capabilities,
-      settings = {
-         ["rust-analyzer"] = {
-            -- cargo = { loadOutDirsFromCheck = true },
-            -- procMacro = { enable = true },
-            -- hoverActions = { references = true },
-            -- checkOnSave = {
-            --    command = "clippy",
-            -- },
-            -- inlayHints = {
-            --    parameterHints = true,
-            --    closureReturnTypes = true,
-            -- },
-         },
-      },
-   },
+   -- rust_analyzer = {
+   --    capabilities = capabilities,
+   --    settings = {
+   --       ["rust-analyzer"] = {
+   --          -- cargo = { loadOutDirsFromCheck = true },
+   --          -- procMacro = { enable = true },
+   --          -- hoverActions = { references = true },
+   --          -- checkOnSave = {
+   --          --    command = "clippy",
+   --          -- },
+   --          -- inlayHints = {
+   --          --    parameterHints = true,
+   --          --    closureReturnTypes = true,
+   --          -- },
+   --       },
+   --    },
+   -- },
    pyright = { capabilities = capabilities },
    clangd = { capabilities = capabilities },
    denols = { capabilities = capabilities },

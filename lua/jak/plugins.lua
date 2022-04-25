@@ -248,7 +248,9 @@ local plugins = {
    },
    {
       "nvim-lualine/lualine.nvim",
+      requires = "navarasu/onedark.nvim",
       config = function()
+         require("onedark").load()
          require("lualine").setup {
             options = {
                theme = "onedark",
@@ -266,7 +268,6 @@ local plugins = {
          require("onedark").setup {
             style = "deep",
          }
-         require("onedark").load()
       end,
    },
    {

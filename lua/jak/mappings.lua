@@ -35,10 +35,10 @@ map("n", "<C-c>", ":BufferLinePickClose<CR>")
 map("n", "<leader>w", "<cmd>HopWord<CR>")
 map("n", "<leader>l", "<cmd>HopLine<CR>")
 
-map("n", "<C-j>", "<C-w>j")
-map("n", "<C-k>", "<C-w>k")
-map("n", "<C-h>", "<C-w>h")
-map("n", "<C-l>", "<C-w>l")
+map("n", "<A-j>", "<C-w>j")
+map("n", "<A-k>", "<C-w>k")
+map("n", "<A-h>", "<C-w>h")
+map("n", "<A-l>", "<C-w>l")
 
 map(
    "n",
@@ -86,3 +86,4 @@ map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 cmd "silent! command PackerCompile lua require 'jak.plugins' require('packer').compile()"
 cmd "silent! command PackerStatus lua require 'jak.plugins' require('packer').status()"
 cmd "silent! command PackerSync lua require 'jak.plugins' require('packer').sync()"
+cmd "silent! command LuaSnipEdit lua require('luasnip.loaders.from_lua').edit_snippet_files()"

@@ -1,4 +1,5 @@
 return {
+   s("todo", t "--TODO: ", i(0)),
    s({ trig = "if", wordTrig = true }, {
       t { "if " },
       i(1),
