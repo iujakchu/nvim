@@ -62,7 +62,7 @@ map("n", "<leader>a", ":CodeActionMenu<CR>")
 
 map("n", "<leader>u", ":UndotreeToggle<CR>")
 map("n", "<leader>m", ":MarkdownPreviewToggle<CR>")
-map("", "s", ":TranslateW --engines=bing,youdao,haici<CR>")
+map("", "s", ":TranslateW <CR>")
 
 map("v", "<", "<gv")
 map("v", ">", ">gv")

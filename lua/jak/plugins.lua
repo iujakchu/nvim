@@ -123,6 +123,7 @@ local plugins = {
          "xiyaowong/telescope-emoji.nvim",
          "AckslD/nvim-neoclip.lua",
          "ahmedkhalf/project.nvim",
+         "nvim-telescope/telescope-ui-select.nvim",
          "nvim-telescope/telescope-file-browser.nvim",
          "nvim-telescope/telescope-ui-select.nvim",
          "cljoly/telescope-repo.nvim",
@@ -225,7 +226,12 @@ local plugins = {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
    },
-   { "voldikss/vim-translator" },
+   {
+      "voldikss/vim-translator",
+      config = function()
+         require "jak.setup.translator"
+      end,
+   },
    { "gcmt/wildfire.vim" },
    { "stevearc/dressing.nvim" },
    {
