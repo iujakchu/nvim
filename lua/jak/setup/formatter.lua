@@ -60,6 +60,15 @@ require("formatter").setup {
             }
          end,
       },
+      javascript = { -- deno fmt
+         function()
+            return {
+               exe = "deno fmt",
+               args = { vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
+               stdin = false,
+            }
+         end,
+      },
       typescript = { -- deno fmt
          function()
             return {
@@ -85,6 +94,6 @@ vim.api.nvim_create_augroup("FormatAutogroup", {
    clear = true,
 })
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-   pattern = "*.ts,*.rs,*.lua,*.cpp,*.hpp,*.h,*.c,*.json,*.dart",
+   pattern = "*.ts,*.js,*.rs,*.lua,*.cpp,*.hpp,*.h,*.c,*.json,*.dart",
    command = "FormatWrite",
 })

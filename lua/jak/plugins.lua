@@ -47,10 +47,11 @@ local plugins = {
                   config = {
                      workspaces = {
                         work = "~/work",
+                        daily = "~/daily",
                      },
                   },
                },
-               ["core.gtd.base"] = { config = { workspace = "work" } },
+               ["core.gtd.base"] = { config = { workspace = "daily" } },
                ["core.norg.concealer"] = {},
                ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
             },
@@ -243,14 +244,6 @@ local plugins = {
    {
       "ray-x/lsp_signature.nvim",
       config = function() end,
-   },
-   {
-      "rmagatti/session-lens",
-      requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-      config = function()
-         require("session-lens").setup {--[[your custom config--]]
-         }
-      end,
    },
    {
       "nvim-lualine/lualine.nvim",

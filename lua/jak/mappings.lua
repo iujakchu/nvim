@@ -56,7 +56,6 @@ map("n", "<leader>p", ":Glow<CR>")
 map("n", "<leader>n", ":Telescope neoclip<CR>")
 map("n", "<leader>j", ":Telescope emoji search<CR>")
 map("n", "<leader>b", ":Telescope file_browser<CR>")
-map("n", "<C-s>", ":Telescope session-lens search_session<CR>")
 
 map("n", "<leader>a", ":CodeActionMenu<CR>")
 
