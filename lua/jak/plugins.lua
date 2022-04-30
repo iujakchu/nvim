@@ -245,13 +245,19 @@ local plugins = {
       "ray-x/lsp_signature.nvim",
       config = function() end,
    },
+   { "arkav/lualine-lsp-progress" },
    {
       "nvim-lualine/lualine.nvim",
-      after = "onedark.nvim",
+      after = { "onedark.nvim", "lualine-lsp-progress" },
       config = function()
          require("lualine").setup {
             options = {
                theme = "onedark",
+            },
+            sections = {
+               lualine_c = {
+                  "lsp_progress",
+               },
             },
          }
       end,
