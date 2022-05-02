@@ -302,6 +302,21 @@ local plugins = {
          require "jak.setup.todo-comments"
       end,
    },
+   {
+      "CRAG666/code_runner.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require("code_runner").setup {
+            -- put here the commands by filetype
+            filetype = {
+               python = "python3 -u",
+               typescript = "deno run",
+               -- rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+               rust = "cargo run",
+            },
+         }
+      end,
+   },
 }
 return packer.startup(function(use)
    for _, v in ipairs(plugins) do
