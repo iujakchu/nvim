@@ -32,6 +32,13 @@ map("n", "-", ":BufferLineCyclePrev<CR>")
 map("n", "=", ":BufferLineCycleNext<CR>")
 map("n", "<C-c>", ":BufferLinePickClose<CR>")
 
+map("i", "<A-h>", "<Left>")
+map("i", "<A-j>", "<Down>")
+map("i", "<A-l>", "<Right>")
+map("i", "<A-k>", "<Up>")
+map("i", "<A-a>", "<Esc>^i")
+map("i", "<A-e>", "<End>")
+
 map("n", "<leader>w", "<cmd>HopWord<CR>")
 map("n", "<leader>l", "<cmd>HopLine<CR>")
 

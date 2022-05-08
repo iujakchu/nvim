@@ -46,12 +46,11 @@ local plugins = {
                ["core.norg.dirman"] = {
                   config = {
                      workspaces = {
-                        work = "~/work",
-                        daily = "~/daily",
+                        neorg = "~/neorg",
                      },
                   },
                },
-               ["core.gtd.base"] = { config = { workspace = "daily" } },
+               ["core.gtd.base"] = { config = { workspace = "neorg" } },
                ["core.norg.concealer"] = {},
                ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
             },
@@ -67,6 +66,13 @@ local plugins = {
       },
       config = function()
          require("nvim-tree").setup {}
+      end,
+   },
+   {
+      "feline-nvim/feline.nvim",
+      after = "nvim-web-devicons",
+      config = function()
+         require "jak.setup.statusline"
       end,
    },
    {
@@ -245,21 +251,15 @@ local plugins = {
       "ray-x/lsp_signature.nvim",
       config = function() end,
    },
-   { "arkav/lualine-lsp-progress" },
+   { "NvChad/extensions" },
    {
-      "nvim-lualine/lualine.nvim",
-      after = { "onedark.nvim", "lualine-lsp-progress" },
+      "NvChad/base46",
+      after = "packer.nvim",
       config = function()
-         require("lualine").setup {
-            options = {
-               theme = "onedark",
-            },
-            sections = {
-               lualine_c = {
-                  "lsp_progress",
-               },
-            },
-         }
+         local ok, base46 = pcall(require, "base46")
+         if ok then
+            base46.load_theme()
+         end
       end,
    },
    { "ellisonleao/glow.nvim" },
@@ -302,21 +302,21 @@ local plugins = {
          require "jak.setup.todo-comments"
       end,
    },
-   {
-      "CRAG666/code_runner.nvim",
-      requires = "nvim-lua/plenary.nvim",
-      config = function()
-         require("code_runner").setup {
-            -- put here the commands by filetype
-            filetype = {
-               python = "python3 -u",
-               typescript = "deno run",
-               -- rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-               rust = "cargo run",
-            },
-         }
-      end,
-   },
+   -- {
+   --    "CRAG666/code_runner.nvim",
+   --    requires = "nvim-lua/plenary.nvim",
+   --    config = function()
+   --       require("code_runner").setup {
+   --          -- put here the commands by filetype
+   --          filetype = {
+   --             python = "python3 -u",
+   --             typescript = "deno run",
+   --             -- rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+   --             rust = "cargo run",
+   --          },
+   --       }
+   --    end,
+   -- },
 }
 return packer.startup(function(use)
    for _, v in ipairs(plugins) do

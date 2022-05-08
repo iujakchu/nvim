@@ -20,6 +20,7 @@ local opt = {
    splitbelow = true,
    splitright = true,
    termguicolors = true,
+   cul = true,
    -- whichwrap = "h,l",
 }
 for key, value in pairs(opt) do
