@@ -197,8 +197,17 @@ local plugins = {
    {
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim" },
-      -- tag = 'release' -- To use the latest release
-      config = [[require('gitsigns').setup()]],
+      config = function()
+         require("gitsigns").setup {
+            signs = {
+               add = { hl = "DiffAdd", text = "+", numhl = "GitSignsAddNr" },
+               change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+               delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+               topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+               changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+            },
+         }
+      end,
    },
    { "phaazon/hop.nvim", config = [[require("hop").setup()]] },
    -- { "karb94/neoscroll.nvim", config = [[require('neoscroll').setup()]] },
