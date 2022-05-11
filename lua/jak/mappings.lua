@@ -14,7 +14,7 @@ map("n", "S", ":w<CR>")
 map("n", "w", ":HopWord<CR>")
 map("n", "tt", ":TroubleToggle<CR>")
 map("n", "td", ":TodoTelescope<CR>")
-map("n", "<leader><leader>", ":so %<CR>")
+map("n", "<leader>,", ":so %<CR>")
 
 map("", "J", "5j")
 map("", "K", "5k")
@@ -56,7 +56,7 @@ map(
    "<leader>g",
    ":lua require'telescope.builtin'.live_grep({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'} })<cr>"
 )
-map("n", "<leader>h", ":Telescope help_tags<CR>")
+map("n", "<leader><leader>", ":Telescope help_tags<CR>")
 -- map("n", "<leader>p", ":Telescope projects<CR>")
 map("n", "<leader>p", ":Glow<CR>")
 map("n", "<leader>n", ":Telescope neoclip<CR>")

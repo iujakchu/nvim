@@ -2,6 +2,7 @@
 vim.g.proxy = "https://github.com/"
 local present, impatient = pcall(require, "impatient")
 
+require "core.utils"
 if present then
    impatient.enable_profile()
 end
