@@ -1,5 +1,5 @@
 local opt = {
-   clipboard = "unnamed,unnamedplus",
+   clipboard = "unnamedplus",
    ruler = false,
    mouse = "a",
    wildignorecase = true,
@@ -15,6 +15,7 @@ local opt = {
    expandtab = true,
    shiftwidth = 4,
    smartindent = true,
+   confirm = true,
    title = true,
    signcolumn = "yes",
    splitbelow = true,

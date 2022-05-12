@@ -102,3 +102,18 @@ nvchad.load_override = function(default_table, plugin_name)
    end
    return default_table
 end
+
+nvchad.load_theme = function()
+   -- clear highlights of bufferline (cuz of dynamic devicons hl group on the buffer)
+   local highlights_raw = vim.split(vim.api.nvim_exec("filter BufferLine hi", true), "\n")
+   local highlight_groups = {}
+
+   for _, raw_hi in ipairs(highlights_raw) do
+      table.insert(highlight_groups, string.match(raw_hi, "BufferLine%a+"))
+   end
+
+   for _, highlight in ipairs(highlight_groups) do
+      vim.cmd([[hi clear ]] .. highlight)
+   end
+   require "integrations"
+end

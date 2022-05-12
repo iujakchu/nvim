@@ -75,6 +75,7 @@ map("v", ">", ">gv")
 map("n", "<leader>e", ":NvimTreeToggle<CR>")
 map("n", "<leader>rr", ':lua require("rust-tools.runnables").runnables()<CR>')
 
+-- TODO:lspconfig
 map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "r", "<cmd>lua vim.lsp.buf.hover()<CR>")

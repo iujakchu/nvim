@@ -31,6 +31,8 @@ require("nvim-treesitter.configs").setup {
       "lua",
       "python",
       "yaml",
+      "fennel",
+      "nix",
       "cpp",
       "norg",
       "norg_meta",
