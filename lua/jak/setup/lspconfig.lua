@@ -57,6 +57,7 @@ local servers = {
    denols = { capabilities = capabilities },
    slint_lsp = { capabilities = capabilities },
    bashls = { capabilities = capabilities },
+   hls = { capabilities = capabilities },
 }
 for client, setup in pairs(servers) do
    require("lspconfig")[client].setup(setup)
