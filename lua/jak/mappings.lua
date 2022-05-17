@@ -28,8 +28,8 @@ map("n", "<C-t>", ":tabe<CR>")
 map("n", "<leader>-", ":-tabnext<CR>")
 map("n", "<leader>=", ":+tabnext<CR>")
 
-map("n", "<TAB>", ":BufferLineCyclePrev<CR>")
-map("n", "<S-TAB>", ":BufferLineCycleNext<CR>")
+map("n", "<TAB>", ":BufferLineCycleNext<CR>")
+map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>")
 
 map("i", "<A-h>", "<Left>")
 map("i", "<A-j>", "<Down>")
