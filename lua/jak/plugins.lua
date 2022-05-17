@@ -273,18 +273,6 @@ local plugins = {
    },
    { "ellisonleao/glow.nvim" },
    {
-      "folke/tokyonight.nvim",
-   },
-   {
-      "navarasu/onedark.nvim",
-      config = function()
-         require("onedark").setup {
-            style = "deep",
-         }
-         require("onedark").load()
-      end,
-   },
-   {
       "zbirenbaum/copilot.lua",
       event = "InsertEnter",
       config = function()
