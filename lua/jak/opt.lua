@@ -5,6 +5,7 @@ local opt = {
    wildignorecase = true,
    swapfile = false,
    completeopt = "menu,menuone,noselect",
+   laststatus = 3,
    writebackup = false,
    ignorecase = true,
    smartcase = true,

@@ -53,5 +53,6 @@ M.base_16 = {
    base0F = "#887c76",
 }
 
-vim.g.nvchad_theme = "blossom"
-nvchad.load_theme()
+M = require("base46").override_theme(M, "blossom")
+
+return M

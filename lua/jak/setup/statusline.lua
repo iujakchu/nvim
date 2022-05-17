@@ -5,6 +5,7 @@ if not present then
 end
 
 vim.g.nvchad_theme = "onedark"
+require("base46").load_theme()
 local options = {
    colors = require("base46").get_colors "base_30",
    lsp = require "feline.providers.lsp",
