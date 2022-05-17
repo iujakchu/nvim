@@ -58,7 +58,6 @@ local plugins = {
       end,
       requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
    },
-
    {
       "kyazdani42/nvim-tree.lua",
       requires = {
@@ -105,7 +104,7 @@ local plugins = {
          "Saecki/crates.nvim",
          "f3fora/cmp-spell",
          "L3MON4D3/LuaSnip",
-         "zbirenbaum/copilot-cmp",
+         -- "zbirenbaum/copilot-cmp",
          "saadparwaiz1/cmp_luasnip",
       },
       config = [[require('jak.setup.cmp')]],
@@ -272,15 +271,15 @@ local plugins = {
       end,
    },
    { "ellisonleao/glow.nvim" },
-   {
-      "zbirenbaum/copilot.lua",
-      event = "InsertEnter",
-      config = function()
-         vim.schedule(function()
-            require("copilot").setup()
-         end)
-      end,
-   },
+   -- {
+   --    "zbirenbaum/copilot.lua",
+   --    event = "InsertEnter",
+   --    config = function()
+   --       vim.schedule(function()
+   --          require("copilot").setup()
+   --       end)
+   --    end,
+   -- },
    {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
