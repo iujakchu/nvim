@@ -22,6 +22,7 @@ require("nvim-treesitter.configs").setup {
    ensure_installed = {
       "rust",
       "haskell",
+      "fish",
       "javascript",
       "typescript",
       "markdown",

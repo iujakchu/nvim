@@ -5,4 +5,12 @@ if present then
 end
 
 require "jak"
---TODO: test loc
+--TODO: tmp workaround for MatchParen higrp
+vim.api.nvim_create_autocmd("BufEnter",{
+    pattern = "*",
+    callback = function ()
+        vim.cmd[[
+            hi MatchParen ctermbg=black guibg=purple
+            ]]
+            end
+})
