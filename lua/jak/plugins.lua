@@ -187,6 +187,7 @@ local plugins = {
       config = [[require("jak.setup.markdown-preview")]],
       ft = "markdown",
    },
+   { "nkrkv/nvim-treesitter-rescript" },
    {
       "nvim-treesitter/nvim-treesitter",
       before = "neorg",
