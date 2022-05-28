@@ -45,14 +45,16 @@ map("n", "<A-k>", "<C-w>k")
 map("n", "<A-h>", "<C-w>h")
 map("n", "<A-l>", "<C-w>l")
 
+map("n", "<leader>fa", "zM")
+map("n", "<leader>fo", "zR")
 map(
    "n",
-   "<leader>f",
+   "<leader>ff",
    ":lua require'telescope.builtin'.find_files({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'}})<cr>"
 )
 map(
    "n",
-   "<leader>g",
+   "<leader>ft",
    ":lua require'telescope.builtin'.live_grep({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'} })<cr>"
 )
 map("n", "<leader><leader>", ":Telescope help_tags<CR>")
