@@ -304,6 +304,14 @@ local plugins = {
    --       }
    --    end,
    -- },
+   {
+      "anuvyklack/pretty-fold.nvim",
+      requires = "anuvyklack/nvim-keymap-amend",
+      config = function()
+         require("pretty-fold").setup()
+         require("pretty-fold.preview").setup()
+      end,
+   },
 }
 return packer.startup(function(use)
    for _, v in ipairs(plugins) do
