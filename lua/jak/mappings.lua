@@ -54,7 +54,7 @@ map(
 )
 map(
    "n",
-   "<leader>ft",
+   "<leader>fs",
    ":lua require'telescope.builtin'.live_grep({ require('telescope.themes').get_ivy({}),find_command = {'rg' ,'--hidden' ,'--glob' ,'!.git','--files'} })<cr>"
 )
 map("n", "<leader><leader>", ":Telescope help_tags<CR>")
