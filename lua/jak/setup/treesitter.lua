@@ -1,7 +1,4 @@
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-for _, config in pairs(parser_configs) do
-   config.install_info.url = config.install_info.url:gsub("https://github.com/", vim.g.proxy)
-end
 parser_configs.norg_meta = {
    install_info = {
       url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",

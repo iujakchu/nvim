@@ -9,7 +9,7 @@ if not present then
          "clone",
          "--depth",
          "1",
-         vim.g.proxy .. "wbthomason/packer.nvim",
+         "https://github.com/wbthomason/packer.nvim",
          install_path,
       }
    end
@@ -23,7 +23,7 @@ if not present then
 end
 packer.init {
    git = {
-      default_url_format = vim.g.proxy .. "%s",
+      default_url_format = "https://github.com/%s",
       depth = 1,
       clone_timeout = 300,
    },
@@ -58,6 +58,7 @@ local plugins = {
       end,
       requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
    },
+   { "xiyaowong/nvim-transparent" },
    {
       "kyazdani42/nvim-tree.lua",
       requires = {
