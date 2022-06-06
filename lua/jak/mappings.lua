@@ -59,7 +59,6 @@ map(
 )
 map("n", "<leader><leader>", ":Telescope help_tags<CR>")
 -- map("n", "<leader>p", ":Telescope projects<CR>")
-map("n", "<leader>p", ":Glow<CR>")
 map("n", "<leader>n", ":Telescope neoclip<CR>")
 map("n", "<leader>j", ":Telescope emoji search<CR>")
 map("n", "<leader>,", ":Telescope file_browser<CR>")
@@ -67,7 +66,6 @@ map("n", "<leader>,", ":Telescope file_browser<CR>")
 map("n", "<leader>a", ":CodeActionMenu<CR>")
 
 map("n", "<leader>u", ":UndotreeToggle<CR>")
-map("n", "<leader>m", ":MarkdownPreviewToggle<CR>")
 map("", "s", ":TranslateW <CR>")
 
 map("v", "<", "<gv")

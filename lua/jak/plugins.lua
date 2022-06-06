@@ -97,7 +97,7 @@ local plugins = {
       end,
    },
 
-   -- TODO
+   -- TODO:
    {
       "simrat39/rust-tools.nvim",
       config = function()
@@ -151,7 +151,14 @@ local plugins = {
          require("octo").setup()
       end,
    },
-   -- { "ThePrimeagen/harpoon" },
+   {
+      "ThePrimeagen/harpoon",
+      requires = "nvim-telescope/telescope.nvim",
+      config = function()
+         vim.keymap.set("n", "<leader>ma", ":lua require('harpoon.mark').add_file()<CR>")
+         vim.keymap.set("n", "<leader>ms", ":Telescope harpoon marks<CR>")
+      end,
+   },
    {
       "simrat39/symbols-outline.nvim",
       config = function()
@@ -190,14 +197,6 @@ local plugins = {
          require "jak.setup.alpha"
       end,
    },
-   {
-      "iamcco/markdown-preview.nvim",
-      run = "cd app && yarn install",
-      config = function()
-         require "jak.setup.markdown-preview"
-      end,
-      ft = "markdown",
-   },
    { "nkrkv/nvim-treesitter-rescript" },
    {
       "nvim-treesitter/nvim-treesitter",
@@ -235,7 +234,14 @@ local plugins = {
          require "jak.setup.toggleterm"
       end,
    },
-   { "rcarriga/nvim-notify" },
+   {
+      "rcarriga/nvim-notify",
+      config = function()
+         require("notify").setup {
+            background_colour = "#000000",
+         }
+      end,
+   },
    { "antoinemadec/FixCursorHold.nvim" },
    {
       "folke/which-key.nvim",
@@ -286,7 +292,13 @@ local plugins = {
       config = function() end,
    },
    { "NvChad/extensions" },
-   { "ellisonleao/glow.nvim" },
+   {
+      "ellisonleao/glow.nvim",
+      ft = "markdown",
+      config = function()
+         vim.keymap.set("n", "<leader>p", ":Glow<CR>", { silent = true })
+      end,
+   },
    -- {
    --    "zbirenbaum/copilot.lua",
    --    event = "InsertEnter",
