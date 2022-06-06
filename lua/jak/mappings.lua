@@ -13,7 +13,7 @@ map("n", "Q", ":q<CR>")
 map("n", "S", ":w<CR>")
 map("n", "tt", ":TroubleToggle<CR>")
 map("n", "td", ":TodoTelescope<CR>")
-map("n", "<leader>,", ":so %<CR>")
+map("n", "<leader>.", ":so %<CR>")
 
 map("", "J", "5j")
 map("", "K", "5k")
@@ -62,7 +62,7 @@ map("n", "<leader><leader>", ":Telescope help_tags<CR>")
 map("n", "<leader>p", ":Glow<CR>")
 map("n", "<leader>n", ":Telescope neoclip<CR>")
 map("n", "<leader>j", ":Telescope emoji search<CR>")
-map("n", "<leader>b", ":Telescope file_browser<CR>")
+map("n", "<leader>,", ":Telescope file_browser<CR>")
 
 map("n", "<leader>a", ":CodeActionMenu<CR>")
 

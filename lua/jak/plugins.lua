@@ -1,37 +1,6 @@
-vim.cmd "packadd packer.nvim"
-local present, packer = pcall(require, "packer")
-if not present then
-   local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
-   print "Cloning packer..."
-   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-      BOOTSTRAP = vim.fn.system {
-         "git",
-         "clone",
-         "--depth",
-         "1",
-         "https://github.com/wbthomason/packer.nvim",
-         install_path,
-      }
-   end
-   vim.cmd "packadd packer.nvim"
-   present, packer = pcall(require, "packer")
-   if present then
-      print "Clone Successfully!"
-   else
-      error "Clone failed!"
-   end
-end
-packer.init {
-   git = {
-      default_url_format = "https://github.com/%s",
-      depth = 1,
-      clone_timeout = 300,
-   },
-   display = { open_fn = require("packer.util").float },
-}
-
+local packer = require("core.bootstrap").bootstrap_packer()
 local plugins = {
-   { "wbthomason/packer.nvim", event = "VimEnter" },
+   { "wbthomason/packer.nvim" },
    { "nathom/filetype.nvim" },
    { "tpope/vim-surround" },
    { "tpope/vim-eunuch" },
@@ -46,11 +15,12 @@ local plugins = {
                ["core.norg.dirman"] = {
                   config = {
                      workspaces = {
-                        neorg = "~/neorg",
+                        notes = "~/notes",
+                        example_gtd = "/tmp/example_workspaces/gtd",
                      },
                   },
                },
-               ["core.gtd.base"] = { config = { workspace = "neorg" } },
+               ["core.gtd.base"] = { config = { workspace = "example_gtd" } },
                ["core.norg.concealer"] = {},
                ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
             },
@@ -73,6 +43,20 @@ local plugins = {
       after = "nvim-web-devicons",
       config = function()
          require "jak.setup.statusline"
+      end,
+   },
+   {
+      "CRAG666/code_runner.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require("code_runner").setup {
+            filetype = {
+               python = "python3 -u",
+               typescript = "deno run",
+               rust = "cargo run",
+            },
+         }
+         vim.keymap.set("n", "<F2>", ":RunCode<CR>", { noremap = true, silent = false })
       end,
    },
    {
@@ -290,21 +274,6 @@ local plugins = {
          require "jak.setup.todo-comments"
       end,
    },
-   -- {
-   --    "CRAG666/code_runner.nvim",
-   --    requires = "nvim-lua/plenary.nvim",
-   --    config = function()
-   --       require("code_runner").setup {
-   --          -- put here the commands by filetype
-   --          filetype = {
-   --             python = "python3 -u",
-   --             typescript = "deno run",
-   --             -- rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-   --             rust = "cargo run",
-   --          },
-   --       }
-   --    end,
-   -- },
    {
       "anuvyklack/pretty-fold.nvim",
       requires = "anuvyklack/nvim-keymap-amend",
@@ -317,8 +286,5 @@ local plugins = {
 return packer.startup(function(use)
    for _, v in ipairs(plugins) do
       use(v)
-   end
-   if BOOTSTRAP then
-      require("packer").sync()
    end
 end)

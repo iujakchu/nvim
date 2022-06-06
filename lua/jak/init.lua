@@ -1,3 +1,4 @@
+require("core.bootstrap").bootstrap_impatient()
 require "core.utils"
 require "jak.opt"
 require "jak.mappings"

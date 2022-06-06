@@ -52,3 +52,23 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
    vim.g["loaded_" .. plugin] = 1
 end
+vim.opt.linebreak = true
+vim.opt.showbreak = "  ﬌"
+vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20"
+vim.opt.list = true --show some hidden characters
+vim.opt.listchars = {
+   tab = "> ",
+   nbsp = "␣",
+   trail = "•",
+}
+vim.opt.fillchars = {
+   eob = " ",
+   vert = "║",
+   horiz = "═",
+   horizup = "╩",
+   horizdown = "╦",
+   vertleft = "╣",
+   vertright = "╠",
+   verthoriz = "╬",
+}
+vim.opt.timeoutlen = 300
