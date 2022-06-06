@@ -92,18 +92,32 @@ local plugins = {
          -- "zbirenbaum/copilot-cmp",
          "saadparwaiz1/cmp_luasnip",
       },
-      config = [[require('jak.setup.cmp')]],
+      config = function()
+         require "jak.setup.cmp"
+      end,
    },
 
    -- TODO
-   { "simrat39/rust-tools.nvim", config = [[require('rust-tools').setup({})]] },
+   {
+      "simrat39/rust-tools.nvim",
+      config = function()
+         require("rust-tools").setup {}
+      end,
+   },
 
-   { "windwp/nvim-autopairs", config = [[require('nvim-autopairs').setup({ map_cr = true })]] },
+   {
+      "windwp/nvim-autopairs",
+      config = function()
+         require("nvim-autopairs").setup { map_cr = true }
+      end,
+   },
 
    { "mbbill/undotree" },
    {
       "mhartington/formatter.nvim",
-      config = [[require('jak.setup.formatter')]],
+      config = function()
+         require "jak.setup.formatter"
+      end,
    },
 
    {
@@ -140,25 +154,35 @@ local plugins = {
    -- { "ThePrimeagen/harpoon" },
    {
       "simrat39/symbols-outline.nvim",
-      config = [[require('jak.setup.symbols-outline')]],
+      config = function()
+         require "jak.setup.symbols-outline"
+      end,
    },
 
    {
       "p00f/nvim-ts-rainbow",
-      config = [[require('jak.setup.nvim-ts-rainbow')]],
+      config = function()
+         require "jak.setup.nvim-ts-rainbow"
+      end,
       requires = { "nvim-treesitter/nvim-treesitter" },
    },
    {
       "lukas-reineke/indent-blankline.nvim",
-      config = [[require("jak.setup.indent")]],
+      config = function()
+         require "jak.setup.indent"
+      end,
    },
    {
       "terrortylor/nvim-comment",
-      config = [[require("nvim_comment").setup({line_mapping = "<leader>c", operator_mapping = "<leader>c"})]],
+      config = function()
+         require("nvim_comment").setup { line_mapping = "<leader>c", operator_mapping = "<leader>c" }
+      end,
    },
    {
       "norcalli/nvim-colorizer.lua",
-      config = [[require('colorizer').setup()]],
+      config = function()
+         require("colorizer").setup()
+      end,
    },
    {
       "goolord/alpha-nvim",
@@ -169,7 +193,9 @@ local plugins = {
    {
       "iamcco/markdown-preview.nvim",
       run = "cd app && yarn install",
-      config = [[require("jak.setup.markdown-preview")]],
+      config = function()
+         require "jak.setup.markdown-preview"
+      end,
       ft = "markdown",
    },
    { "nkrkv/nvim-treesitter-rescript" },
@@ -177,7 +203,9 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter",
       before = "neorg",
       run = ":TSUpdate",
-      config = [[require("jak.setup.treesitter")]],
+      config = function()
+         require "jak.setup.treesitter"
+      end,
    },
    {
       "lewis6991/gitsigns.nvim",
@@ -194,9 +222,19 @@ local plugins = {
          }
       end,
    },
-   { "phaazon/hop.nvim", config = [[require("hop").setup()]] },
+   {
+      "phaazon/hop.nvim",
+      config = function()
+         require("hop").setup()
+      end,
+   },
    -- { "karb94/neoscroll.nvim", config = [[require('neoscroll').setup()]] },
-   { "akinsho/toggleterm.nvim", config = [[require("jak.setup.toggleterm")]] },
+   {
+      "akinsho/toggleterm.nvim",
+      config = function()
+         require "jak.setup.toggleterm"
+      end,
+   },
    { "rcarriga/nvim-notify" },
    { "antoinemadec/FixCursorHold.nvim" },
    {
@@ -212,7 +250,9 @@ local plugins = {
    {
       "akinsho/bufferline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      config = [[require("bufferline").setup()]],
+      config = function()
+         require("bufferline").setup()
+      end,
    },
    -- TODO
    {
