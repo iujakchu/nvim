@@ -56,7 +56,7 @@ local plugins = {
                rust = "cargo run",
             },
          }
-         vim.keymap.set("n", "<F2>", ":RunCode<CR>", { noremap = true, silent = false })
+         vim.keymap.set("n", "<F1>", ":RunCode<CR>", { noremap = true, silent = false })
       end,
    },
    {
@@ -156,8 +156,8 @@ local plugins = {
       "ThePrimeagen/harpoon",
       requires = "nvim-telescope/telescope.nvim",
       config = function()
-         vim.keymap.set("n", "<leader>ma", ":lua require('harpoon.mark').add_file()<CR>")
-         vim.keymap.set("n", "<leader>ms", ":Telescope harpoon marks<CR>")
+         vim.keymap.set("n", "ma", ":lua require('harpoon.mark').add_file()<CR>")
+         vim.keymap.set("n", "ms", ":Telescope harpoon marks<CR>")
       end,
    },
    {
@@ -283,11 +283,12 @@ local plugins = {
       end,
    },
    { "gcmt/wildfire.vim" },
-   { "stevearc/dressing.nvim" },
+   -- { "stevearc/dressing.nvim" },
    {
       "klen/nvim-test",
       config = function()
          require("nvim-test").setup()
+         vim.keymap.set("n", "ts", ":TestSuite<CR>")
       end,
    },
    {
@@ -313,7 +314,7 @@ local plugins = {
    -- },
    {
       "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
+      requires = { "kyazdani42/nvim-web-devicons", "folke/lsp-colors.nvim" },
       config = function()
          require("trouble").setup {
             -- your configuration comes here
@@ -330,11 +331,31 @@ local plugins = {
       end,
    },
    {
+      "folke/zen-mode.nvim",
+      config = function()
+         require("zen-mode").setup {}
+      end,
+   },
+   {
       "anuvyklack/pretty-fold.nvim",
       requires = "anuvyklack/nvim-keymap-amend",
       config = function()
          require("pretty-fold").setup()
          require("pretty-fold.preview").setup()
+      end,
+   },
+   -- WARNING: no ready to use
+   {
+      "mfussenegger/nvim-dap",
+      config = function()
+         require "jak.setup.dap"
+      end,
+   },
+   {
+      "rcarriga/nvim-dap-ui",
+      requires = { "mfussenegger/nvim-dap" },
+      config = function()
+         require("dapui").setup()
       end,
    },
 }
