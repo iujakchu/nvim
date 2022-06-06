@@ -140,6 +140,7 @@ local plugins = {
          require "jak.setup.telescope"
       end,
    },
+   -- TODO: try this
    {
       "pwntester/octo.nvim",
       requires = {
@@ -206,6 +207,7 @@ local plugins = {
          require "jak.setup.treesitter"
       end,
    },
+   --TODO: git scm
    {
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim" },
@@ -213,7 +215,7 @@ local plugins = {
          require("gitsigns").setup {
             signs = {
                add = { hl = "DiffAdd", text = "+", numhl = "GitSignsAddNr" },
-               change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+               change = { hl = "DiffChange", text = "💳", numhl = "GitSignsChangeNr" },
                delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
                topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
                changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
@@ -221,19 +223,20 @@ local plugins = {
          }
       end,
    },
+   --TODO: how about leap
    {
       "phaazon/hop.nvim",
       config = function()
          require("hop").setup()
       end,
    },
-   -- { "karb94/neoscroll.nvim", config = [[require('neoscroll').setup()]] },
    {
       "akinsho/toggleterm.nvim",
       config = function()
          require "jak.setup.toggleterm"
       end,
    },
+   --TODO: how about working with neorg?
    {
       "rcarriga/nvim-notify",
       config = function()
