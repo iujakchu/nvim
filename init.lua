@@ -5,9 +5,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
    callback = function()
       vim.cmd [[
             hi MatchParen ctermbg=black guibg=purple
+            TransparentEnable
             ]]
    end,
 })
-vim.opt.foldlevel = 100
-vim.opt.foldmethod = "expr" -- use treesitter for folding
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

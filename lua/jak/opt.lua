@@ -72,3 +72,6 @@ vim.opt.fillchars = {
    verthoriz = "╬",
 }
 vim.opt.timeoutlen = 300
+vim.opt.foldlevel = 100
+vim.opt.foldmethod = "expr" -- use treesitter for folding
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
