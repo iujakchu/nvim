@@ -263,7 +263,7 @@ local plugins = {
          require("bufferline").setup()
       end,
    },
-   -- TODO
+   -- TODO:
    {
       "saecki/crates.nvim",
       event = { "BufRead Cargo.toml" },

@@ -1,5 +1,6 @@
 require "jak"
---TODO: tmp workaround for MatchParen highlight group
+--HACK: tmp workaround for MatchParen highlight group
+--WARNING:
 vim.api.nvim_create_autocmd("BufEnter", {
    pattern = "*",
    callback = function()
@@ -9,3 +10,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
             ]]
    end,
 })
+--TODO: try null-ls and dap
