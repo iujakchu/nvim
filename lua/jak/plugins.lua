@@ -37,7 +37,7 @@ local plugins = {
          "kyazdani42/nvim-web-devicons", -- optional, for file icon
       },
       config = function()
-         map("n", "<leader>e", ":NvimTreeToggle<CR>")
+         vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
          require("nvim-tree").setup {}
       end,
    },
@@ -104,8 +104,8 @@ local plugins = {
    {
       "simrat39/rust-tools.nvim",
       config = function()
-         map("n", "<leader>rr", require("rust-tools.runnables").runnables())
          require("rust-tools").setup {}
+         --vim.keymap.set("n", "<leader>rr", require("rust-tools.runnables").runnables())
       end,
    },
 
@@ -119,7 +119,7 @@ local plugins = {
    {
       "mbbill/undotree",
       config = function()
-         map("n", "<leader>u", ":UndotreeToggle<CR>")
+         vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
       end,
    },
    {
@@ -146,28 +146,28 @@ local plugins = {
          "LinArcX/telescope-ports.nvim",
       },
       config = function()
-         map(
-            "n",
-            "<leader>ff",
-            require("telescope.builtin").find_files {
-               require("telescope.themes").get_ivy {},
-               find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
-            }
-         )
-         map(
-            "n",
-            "<leader>fs",
-            require("telescope.builtin").live_grep {
-               require("telescope.themes").get_ivy {},
-               find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
-            }
-         )
-         map("n", "<leader><leader>", ":Telescope help_tags<CR>")
-         -- map("n", "<leader>p", ":Telescope projects<CR>")
-         map("n", "<leader>n", ":Telescope neoclip<CR>")
-         map("n", "<leader>j", ":Telescope emoji search<CR>")
-         map("n", "<leader>,", ":Telescope file_browser<CR>")
          require "jak.setup.telescope"
+         --vim.keymap.set(
+         --   "n",
+         --   "<leader>ff",
+         --   require("telescope.builtin").find_files {
+         --      require("telescope.themes").get_ivy {},
+         --      find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
+         --   }
+         --)
+         --vim.keymap.set(
+         --   "n",
+         --   "<leader>fs",
+         --   require("telescope.builtin").live_grep {
+         --      require("telescope.themes").get_ivy {},
+         --      find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
+         --   }
+         --)
+         --vim.keymap.set("n", "<leader><leader>", ":Telescope help_tags<CR>")
+         --vim.keymap.set("n", "<leader>p", ":Telescope projects<CR>")
+         --vim.keymap.set("n", "<leader>n", ":Telescope neoclip<CR>")
+         --vim.keymap.set("n", "<leader>j", ":Telescope emoji search<CR>")
+         --vim.keymap.set("n", "<leader>,", ":Telescope file_browser<CR>")
       end,
    },
    -- TODO: try this
@@ -186,8 +186,8 @@ local plugins = {
       "ThePrimeagen/harpoon",
       requires = "nvim-telescope/telescope.nvim",
       config = function()
-         vim.keymap.set("n", "ma", require("harpoon.mark").add_file())
-         vim.keymap.set("n", "ms", ":Telescope harpoon marks<CR>")
+         --vim.keymap.set("n", "ma", require("harpoon.mark").add_file())
+         --vim.keymap.set("n", "ms", ":Telescope harpoon marks<CR>")
       end,
    },
    {
@@ -271,8 +271,8 @@ local plugins = {
    {
       "phaazon/hop.nvim",
       config = function()
-         map("n", "<leader>w", "<cmd>HopWord<CR>")
-         map("n", "<leader>l", "<cmd>HopLine<CR>")
+         vim.keymap.set("n", "<leader>w", "<cmd>HopWord<CR>")
+         vim.keymap.set("n", "<leader>l", "<cmd>HopLine<CR>")
          require("hop").setup()
       end,
    },
@@ -306,8 +306,8 @@ local plugins = {
       "akinsho/bufferline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
-         map("n", "<TAB>", ":BufferLineCycleNext<CR>")
-         map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>")
+         vim.keymap.set("n", "<TAB>", ":BufferLineCycleNext<CR>")
+         vim.keymap.set("n", "<S-TAB>", ":BufferLineCyclePrev<CR>")
          require("bufferline").setup()
       end,
    },
@@ -324,13 +324,13 @@ local plugins = {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
       config = function()
-         map("n", "<leader>a", ":CodeActionMenu<CR>")
+         vim.keymap.set("n", "<leader>a", ":CodeActionMenu<CR>")
       end,
    },
    {
       "voldikss/vim-translator",
       config = function()
-         map("", "s", ":TranslateW <CR>")
+         vim.keymap.set("", "s", ":TranslateW <CR>")
          require "jak.setup.translator"
       end,
    },
@@ -369,8 +369,8 @@ local plugins = {
       requires = { "kyazdani42/nvim-web-devicons", "folke/lsp-colors.nvim" },
       config = function()
          require("trouble").setup {}
-         map("n", "tt", ":TroubleToggle<CR>")
-         map("n", "td", ":TodoTelescope<CR>")
+         vim.keymap.set("n", "tt", ":TroubleToggle<CR>")
+         vim.keymap.set("n", "td", ":TodoTelescope<CR>")
       end,
    },
    {
