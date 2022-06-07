@@ -4,16 +4,8 @@ local dashboard = require "alpha.themes.dashboard"
 math.randomseed(os.time())
 
 local function pick_color()
-   local colors = { "String", "Identifier", "Keyword", "Number" }
+   local colors = { "String", "Identifier", "Keyword", "Number", "Function", "Special" }
    return colors[math.random(#colors)]
-end
-
-local function footer()
-   local datetime = os.date " %Y-%m-%d   %H:%M:%S"
-   local version = vim.version()
-   local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
-
-   return datetime .. "  " .. nvim_version_info
 end
 
 local logo = {
@@ -73,18 +65,24 @@ local logo = {
       "                                        ",
    },
 }
+local color = pick_color()
 dashboard.section.header.val = logo[math.random(#logo)]
-dashboard.section.header.opts.hl = pick_color()
+dashboard.section.header.opts.hl = color
 
 dashboard.section.buttons.val = {
-   dashboard.button("<Leader>ff", "  Find File"),
-   dashboard.button("<Leader>fs", "  Live Grep"),
-   dashboard.button("<Leader>e", "  Exp"),
-   dashboard.button("Q", "  Quit"),
+   dashboard.button("<Leader>ff", "  "),
+   dashboard.button("<Leader>fs", "  "),
+   dashboard.button("<Leader>e", "  "),
+   dashboard.button("Q", "  "),
 }
 
-dashboard.section.footer.val = footer()
-dashboard.section.footer.opts.hl = "Constant"
+dashboard.section.footer.val = {
+   " ┏┓┏━┓╻┏    ╻┏━┓",
+   "  ┃┣━┫┣┻┓    ┗━┓",
+   "┗━┛╹ ╹╹ ╹    ┗━┛",
+}
+
+dashboard.section.footer.opts.hl = color
 
 alpha.setup(dashboard.opts)
 
