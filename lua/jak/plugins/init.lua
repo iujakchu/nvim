@@ -1,6 +1,4 @@
 local packer = require("core.bootstrap").bootstrap_packer()
-local utils = require("jak.core.utils")
-local map = utils.map
 local plugins = {
    { "wbthomason/packer.nvim" },
    { "nathom/filetype.nvim" },
@@ -37,8 +35,8 @@ local plugins = {
          "kyazdani42/nvim-web-devicons", -- optional, for file icon
       },
       config = function()
-         vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
          require("nvim-tree").setup {}
+         vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
       end,
    },
    {
@@ -59,7 +57,7 @@ local plugins = {
                rust = "cargo run",
             },
          }
-         vim.keymap.set("n", "<F1>", ":RunCode<CR>", { noremap = true, silent = false })
+         vim.keymap.set("n", "<F1>", ":RunCode<CR>", { silent = false })
       end,
    },
    {
@@ -105,7 +103,7 @@ local plugins = {
       "simrat39/rust-tools.nvim",
       config = function()
          require("rust-tools").setup {}
-         --vim.keymap.set("n", "<leader>rr", require("rust-tools.runnables").runnables())
+         vim.keymap.set("n", "<leader>rr", require("rust-tools.runnables").runnables)
       end,
    },
 
@@ -147,27 +145,23 @@ local plugins = {
       },
       config = function()
          require "jak.setup.telescope"
-         --vim.keymap.set(
-         --   "n",
-         --   "<leader>ff",
-         --   require("telescope.builtin").find_files {
-         --      require("telescope.themes").get_ivy {},
-         --      find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
-         --   }
-         --)
-         --vim.keymap.set(
-         --   "n",
-         --   "<leader>fs",
-         --   require("telescope.builtin").live_grep {
-         --      require("telescope.themes").get_ivy {},
-         --      find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
-         --   }
-         --)
-         --vim.keymap.set("n", "<leader><leader>", ":Telescope help_tags<CR>")
-         --vim.keymap.set("n", "<leader>p", ":Telescope projects<CR>")
-         --vim.keymap.set("n", "<leader>n", ":Telescope neoclip<CR>")
-         --vim.keymap.set("n", "<leader>j", ":Telescope emoji search<CR>")
-         --vim.keymap.set("n", "<leader>,", ":Telescope file_browser<CR>")
+         vim.keymap.set("n", "<leader>ff", function()
+            require("telescope.builtin").find_files {
+               require("telescope.themes").get_ivy {},
+               find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
+            }
+         end)
+         vim.keymap.set("n", "<leader>fs", function()
+            require("telescope.builtin").live_grep {
+               require("telescope.themes").get_ivy {},
+               find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
+            }
+         end)
+         vim.keymap.set("n", "<leader><leader>", ":Telescope help_tags<CR>")
+         vim.keymap.set("n", "<leader>p", ":Telescope projects<CR>")
+         vim.keymap.set("n", "<leader>n", ":Telescope neoclip<CR>")
+         vim.keymap.set("n", "<leader>j", ":Telescope emoji search<CR>")
+         vim.keymap.set("n", "<leader>,", ":Telescope file_browser<CR>")
       end,
    },
    -- TODO: try this
@@ -186,8 +180,8 @@ local plugins = {
       "ThePrimeagen/harpoon",
       requires = "nvim-telescope/telescope.nvim",
       config = function()
-         --vim.keymap.set("n", "ma", require("harpoon.mark").add_file())
-         --vim.keymap.set("n", "ms", ":Telescope harpoon marks<CR>")
+         vim.keymap.set("n", "ma", require("harpoon.mark").add_file)
+         vim.keymap.set("n", "ms", ":Telescope harpoon marks<CR>")
       end,
    },
    {
@@ -409,8 +403,9 @@ local plugins = {
       end,
    },
 }
-return packer.startup(function(use)
+packer.startup(function(use)
    for _, v in ipairs(plugins) do
       use(v)
    end
 end)
+--[[ require "jak.plugins.mappings" ]]
