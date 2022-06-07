@@ -1,4 +1,6 @@
 local packer = require("core.bootstrap").bootstrap_packer()
+local utils = require("jak.core.utils")
+local map = utils.map
 local plugins = {
    { "wbthomason/packer.nvim" },
    { "nathom/filetype.nvim" },
@@ -35,6 +37,7 @@ local plugins = {
          "kyazdani42/nvim-web-devicons", -- optional, for file icon
       },
       config = function()
+         map("n", "<leader>e", ":NvimTreeToggle<CR>")
          require("nvim-tree").setup {}
       end,
    },
@@ -101,6 +104,7 @@ local plugins = {
    {
       "simrat39/rust-tools.nvim",
       config = function()
+         map("n", "<leader>rr", require("rust-tools.runnables").runnables())
          require("rust-tools").setup {}
       end,
    },
@@ -112,7 +116,12 @@ local plugins = {
       end,
    },
 
-   { "mbbill/undotree" },
+   {
+      "mbbill/undotree",
+      config = function()
+         map("n", "<leader>u", ":UndotreeToggle<CR>")
+      end,
+   },
    {
       "mhartington/formatter.nvim",
       config = function()
@@ -137,6 +146,27 @@ local plugins = {
          "LinArcX/telescope-ports.nvim",
       },
       config = function()
+         map(
+            "n",
+            "<leader>ff",
+            require("telescope.builtin").find_files {
+               require("telescope.themes").get_ivy {},
+               find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
+            }
+         )
+         map(
+            "n",
+            "<leader>fs",
+            require("telescope.builtin").live_grep {
+               require("telescope.themes").get_ivy {},
+               find_command = { "rg", "--hidden", "--glob", "!.git", "--files" },
+            }
+         )
+         map("n", "<leader><leader>", ":Telescope help_tags<CR>")
+         -- map("n", "<leader>p", ":Telescope projects<CR>")
+         map("n", "<leader>n", ":Telescope neoclip<CR>")
+         map("n", "<leader>j", ":Telescope emoji search<CR>")
+         map("n", "<leader>,", ":Telescope file_browser<CR>")
          require "jak.setup.telescope"
       end,
    },
@@ -156,7 +186,7 @@ local plugins = {
       "ThePrimeagen/harpoon",
       requires = "nvim-telescope/telescope.nvim",
       config = function()
-         vim.keymap.set("n", "ma", ":lua require('harpoon.mark').add_file()<CR>")
+         vim.keymap.set("n", "ma", require("harpoon.mark").add_file())
          vim.keymap.set("n", "ms", ":Telescope harpoon marks<CR>")
       end,
    },
@@ -181,9 +211,23 @@ local plugins = {
       end,
    },
    {
-      "terrortylor/nvim-comment",
+      "numToStr/Comment.nvim",
       config = function()
-         require("nvim_comment").setup { line_mapping = "<leader>c", operator_mapping = "<leader>c" }
+         require("Comment").setup {
+            toggler = {
+               line = "<leader>cc",
+               block = "<leader>cc",
+            },
+            opleader = {
+               line = "<leader>c",
+               block = "<leader>c",
+            },
+            extra = {
+               above = "<leader>cO",
+               below = "<leader>co",
+               eol = "<leader>cA",
+            },
+         }
       end,
    },
    {
@@ -227,6 +271,8 @@ local plugins = {
    {
       "phaazon/hop.nvim",
       config = function()
+         map("n", "<leader>w", "<cmd>HopWord<CR>")
+         map("n", "<leader>l", "<cmd>HopLine<CR>")
          require("hop").setup()
       end,
    },
@@ -260,6 +306,8 @@ local plugins = {
       "akinsho/bufferline.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
+         map("n", "<TAB>", ":BufferLineCycleNext<CR>")
+         map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>")
          require("bufferline").setup()
       end,
    },
@@ -275,10 +323,14 @@ local plugins = {
    {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
+      config = function()
+         map("n", "<leader>a", ":CodeActionMenu<CR>")
+      end,
    },
    {
       "voldikss/vim-translator",
       config = function()
+         map("", "s", ":TranslateW <CR>")
          require "jak.setup.translator"
       end,
    },
@@ -316,11 +368,9 @@ local plugins = {
       "folke/trouble.nvim",
       requires = { "kyazdani42/nvim-web-devicons", "folke/lsp-colors.nvim" },
       config = function()
-         require("trouble").setup {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-         }
+         require("trouble").setup {}
+         map("n", "tt", ":TroubleToggle<CR>")
+         map("n", "td", ":TodoTelescope<CR>")
       end,
    },
    {
