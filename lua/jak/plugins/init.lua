@@ -35,7 +35,6 @@ local plugins = {
          "kyazdani42/nvim-web-devicons", -- optional, for file icon
       },
       config = function()
-         require("nvim-tree").setup {}
          vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
       end,
    },
@@ -409,3 +408,5 @@ packer.startup(function(use)
    end
 end)
 --[[ require "jak.plugins.mappings" ]]
+--WARNING: nvim-tree should not be setup  inside config
+require("nvim-tree").setup {}
