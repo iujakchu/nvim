@@ -1,3 +1,8 @@
+-- ┏┓┏━┓╻┏ ╻┏━┓   ╻ ╻┏━┓┏┳┓┏━╸
+--  ┃┣━┫┣┻┓ ┗━┓   ┣━┫┃ ┃┃┃┃┣╸
+--┗━┛╹ ╹╹ ╹ ┗━┛   ╹ ╹┗━┛╹ ╹┗━╸
+--
+
 require "jak"
 --HACK: tmp workaround for MatchParen highlight group
 --WARNING:
