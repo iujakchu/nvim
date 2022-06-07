@@ -16,11 +16,11 @@ local plugins = {
                   config = {
                      workspaces = {
                         notes = "~/notes",
-                        example_gtd = "/tmp/example_workspaces/gtd",
+                        -- example_gtd = "/tmp/example_workspaces/gtd",
                      },
                   },
                },
-               ["core.gtd.base"] = { config = { workspace = "example_gtd" } },
+               ["core.gtd.base"] = { config = { workspace = "notes" } },
                ["core.norg.concealer"] = {},
                ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
             },
