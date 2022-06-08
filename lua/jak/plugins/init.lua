@@ -16,18 +16,24 @@ local plugins = {
                   config = {
                      workspaces = {
                         notes = "~/notes",
-                        -- example_gtd = "/tmp/example_workspaces/gtd",
                      },
                   },
                },
                ["core.gtd.base"] = { config = { workspace = "notes" } },
                ["core.norg.concealer"] = {},
                ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
+               ["core.norg.journal"] = { config = { workspace = "notes" } },
+               ["core.norg.qol.toc"] = {},
+               ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
+               ["core.export.markdown"] = {},
+               ["core.export"] = {},
+               ["external.kanban"] = {},
             },
          }
       end,
       requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
    },
+   { "max397574/neorg-kanban" },
    { "xiyaowong/nvim-transparent" },
    {
       "kyazdani42/nvim-tree.lua",
