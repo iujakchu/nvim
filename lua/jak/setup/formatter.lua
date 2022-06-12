@@ -5,6 +5,11 @@ require("formatter").setup {
             return { exe = "rustfmt", args = { "--emit=stdout" }, stdin = true }
          end,
       },
+      nix = {
+         function()
+            return { exe = "alejandra", stdin = false }
+         end,
+      },
       python = {
          function()
             return {

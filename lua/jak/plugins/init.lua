@@ -30,6 +30,7 @@ local plugins = {
                ["external.kanban"] = {},
             },
          }
+                vim.keymap.set("n","\\",":NeorgStart")
       end,
       requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
    },
