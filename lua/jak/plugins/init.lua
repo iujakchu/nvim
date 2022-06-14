@@ -30,7 +30,7 @@ local plugins = {
                ["external.kanban"] = {},
             },
          }
-                vim.keymap.set("n","\\",":NeorgStart")
+         vim.keymap.set("n", "\\", ":NeorgStart<CR>")
       end,
       requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
    },
@@ -415,5 +415,3 @@ packer.startup(function(use)
    end
 end)
 --[[ require "jak.plugins.mappings" ]]
---WARNING: nvim-tree should not be setup  inside config
-require("nvim-tree").setup {}

@@ -16,3 +16,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
    end,
 })
 --TODO: try null-ls
+--WARNING: nvim-tree should not be setup  inside config
+require("nvim-tree").setup {}

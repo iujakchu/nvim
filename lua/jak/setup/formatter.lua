@@ -7,7 +7,7 @@ require("formatter").setup {
       },
       nix = {
          function()
-            return { exe = "alejandra", stdin = false }
+            return { exe = "alejandra", args = { "-q" }, stdin = false }
          end,
       },
       python = {
@@ -99,6 +99,6 @@ vim.api.nvim_create_augroup("FormatAutogroup", {
    clear = true,
 })
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-   pattern = "*.ts,*.js,*.rs,*.lua,*.cpp,*.hpp,*.h,*.c,*.json,*.dart",
+   pattern = "*.ts,*.js,*.rs,*.lua,*.cpp,*.hpp,*.h,*.c,*.json,*.dart,*.nix",
    command = "FormatWrite",
 })
