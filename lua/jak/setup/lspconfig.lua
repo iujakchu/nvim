@@ -58,6 +58,8 @@ local servers = {
    slint_lsp = { capabilities = capabilities },
    bashls = { capabilities = capabilities },
    hls = { capabilities = capabilities },
+   rnix = { capabilities = capabilities },
+   cmake = { capabilities = capabilities },
 }
 for client, setup in pairs(servers) do
    require("lspconfig")[client].setup(setup)
