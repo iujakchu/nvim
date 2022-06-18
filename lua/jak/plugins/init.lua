@@ -408,6 +408,7 @@ local plugins = {
          require("dapui").setup()
       end,
    },
+   { "michaelb/sniprun", run = "bash ./install.sh" },
 }
 packer.startup(function(use)
    for _, v in ipairs(plugins) do
