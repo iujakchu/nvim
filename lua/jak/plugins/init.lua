@@ -1,4 +1,4 @@
-local packer = require("core.bootstrap").bootstrap_packer()
+local packer = require("jak.core.bootstrap").bootstrap_packer()
 local plugins = {
    { "wbthomason/packer.nvim" },
    { "nathom/filetype.nvim" },
@@ -37,12 +37,11 @@ local plugins = {
    { "max397574/neorg-kanban" },
    { "xiyaowong/nvim-transparent" },
    {
-      "kyazdani42/nvim-tree.lua",
-      requires = {
-         "kyazdani42/nvim-web-devicons", -- optional, for file icon
-      },
+      "ms-jpq/chadtree",
+      branch = "chad",
+      run = "python3 -m chadtree deps",
       config = function()
-         vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+         vim.keymap.set("n", "<leader>e", ":CHADopen<CR>")
       end,
    },
    {
@@ -258,11 +257,11 @@ local plugins = {
       config = function()
          require("gitsigns").setup {
             signs = {
-               add = { hl = "DiffAdd", text = "+", numhl = "GitSignsAddNr" },
-               change = { hl = "DiffChange", text = "💳", numhl = "GitSignsChangeNr" },
-               delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-               topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-               changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+               add = { hl = "DiffAdd", text = "🍰", numhl = "GitSignsAddNr" },
+               change = { hl = "DiffChange", text = "🌸", numhl = "GitSignsChangeNr" },
+               delete = { hl = "DiffDelete", text = "📛", numhl = "GitSignsDeleteNr" },
+               topdelete = { hl = "DiffDelete", text = "💥", numhl = "GitSignsDeleteNr" },
+               changedelete = { hl = "DiffChangeDelete", text = "🎈", numhl = "GitSignsChangeNr" },
             },
          }
       end,
@@ -347,7 +346,6 @@ local plugins = {
       "ray-x/lsp_signature.nvim",
       config = function() end,
    },
-   { "NvChad/extensions" },
    {
       "ellisonleao/glow.nvim",
       ft = "markdown",

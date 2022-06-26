@@ -2,12 +2,6 @@ local utils = require "jak.core.utils"
 local map = utils.map
 local plugins = {
    {
-      "kyazdani42/nvim-tree.lua",
-      mapping = function()
-         map("n", "<leader>e", ":NvimTreeToggle<CR>")
-      end,
-   },
-   {
       "CRAG666/code_runner.nvim",
       mapping = function()
          map("n", "<F1>", ":RunCode<CR>")

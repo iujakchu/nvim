@@ -7,7 +7,7 @@ require("formatter").setup {
       },
       nix = {
          function()
-            return { exe = "alejandra", args = { "-q" }, stdin = false }
+            return { exe = "alejandra", args = { "-q" }, stdin = true }
          end,
       },
       python = {

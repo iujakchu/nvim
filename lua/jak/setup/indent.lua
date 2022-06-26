@@ -22,7 +22,6 @@ vim.g.indent_blankline_filetype_exclude = {
    "help",
    "alpha",
    "packer",
-   "NvimTree",
    "glowpreview",
    "lsp-installer",
    "translator",
