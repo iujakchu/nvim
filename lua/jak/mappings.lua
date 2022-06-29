@@ -19,6 +19,7 @@ map("n", "<C-t>", ":tabe<CR>")
 map("n", "<leader>-", ":-tabnext<CR>")
 map("n", "<leader>=", ":+tabnext<CR>")
 
+map("n", "<rightmouse>", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("i", "<A-h>", "<Left>")
 map("i", "<A-j>", "<Down>")
 map("i", "<A-l>", "<Right>")

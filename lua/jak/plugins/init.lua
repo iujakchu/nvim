@@ -407,6 +407,13 @@ local plugins = {
       end,
    },
    { "michaelb/sniprun", run = "bash ./install.sh" },
+   {
+      "nvim-orgmode/orgmode",
+      config = function()
+         require("orgmode").setup_ts_grammar()
+         require("orgmode").setup()
+      end,
+   },
 }
 packer.startup(function(use)
    for _, v in ipairs(plugins) do
