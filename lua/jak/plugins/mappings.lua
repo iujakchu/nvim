@@ -38,7 +38,7 @@ local plugins = {
          map("n", "<leader><leader>", ":Telescope help_tags<CR>")
          map("n", "<leader>p", ":Telescope projects<CR>")
          map("n", "<leader>n", ":Telescope neoclip<CR>")
-         map("n", "<leader>j", ":Telescope emoji search<CR>")
+         map("n", "<leader>j", ":Telescope emoji <CR>")
          map("n", "<leader>,", ":Telescope file_browser<CR>")
       end,
    },

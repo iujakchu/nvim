@@ -165,7 +165,7 @@ local plugins = {
          vim.keymap.set("n", "<leader><leader>", ":Telescope help_tags<CR>")
          vim.keymap.set("n", "<leader>p", ":Telescope projects<CR>")
          vim.keymap.set("n", "<leader>n", ":Telescope neoclip<CR>")
-         vim.keymap.set("n", "<leader>j", ":Telescope emoji search<CR>")
+         vim.keymap.set("n", "<leader>j", ":Telescope emoji<CR>")
          vim.keymap.set("n", "<leader>,", ":Telescope file_browser<CR>")
       end,
    },
