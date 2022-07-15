@@ -5,8 +5,8 @@ require "jak.mappings"
 
 --HACK: tmp workaround for MatchParen highlight group
 vim.schedule(function()
-   vim.cmd "TransparentEnable"
-   vim.cmd "hi clear MatchWord"
-   vim.cmd "hi clear MatchParen"
-   vim.cmd "hi MatchParen guibg=LightRed"
+    vim.cmd "TransparentEnable"
+    vim.cmd "hi clear MatchWord"
+    vim.cmd "hi clear MatchParen"
+    vim.cmd "hi MatchParen guibg=LightRed"
 end)

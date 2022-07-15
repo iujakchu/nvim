@@ -20,88 +20,88 @@ local orange = colors.orange
 -- highlight groups & colors
 return {
 
-   Comment = { fg = grey_fg },
+    Comment = { fg = grey_fg },
 
-   -- line numbers
-   CursorLineNr = { fg = white },
-   LineNr = { fg = grey },
+    -- line numbers
+    CursorLineNr = { fg = white },
+    LineNr = { fg = grey },
 
-   -- those ugly ~'s
-   EndOfBuffer = { fg = black },
+    -- those ugly ~'s
+    EndOfBuffer = { fg = black },
 
-   -- floating windows
-   FloatBorder = { fg = blue },
-   NormalFloat = { bg = darker_black },
+    -- floating windows
+    FloatBorder = { fg = blue },
+    NormalFloat = { bg = darker_black },
 
-   -- Pmenu i.e completion menu
-   Pmenu = { bg = black },
-   PmenuSbar = { bg = one_bg },
-   PmenuSel = { bg = pmenu_bg, fg = black },
-   PmenuThumb = { bg = grey },
+    -- Pmenu i.e completion menu
+    Pmenu = { bg = black },
+    PmenuSbar = { bg = one_bg },
+    PmenuSel = { bg = pmenu_bg, fg = black },
+    PmenuThumb = { bg = grey },
 
-   NvimInternalError = { fg = red },
-   WinSeparator = { fg = one_bg2 },
+    NvimInternalError = { fg = red },
+    WinSeparator = { fg = one_bg2 },
 
-   -- Dashboard i.e alpha.nvim
-   AlphaHeader = { fg = grey_fg },
-   AlphaButtons = { fg = light_grey },
+    -- Dashboard i.e alpha.nvim
+    AlphaHeader = { fg = grey_fg },
+    AlphaButtons = { fg = light_grey },
 
-   -- Gitsigns.nvim
-   DiffAdd = {
-      fg = blue,
-   },
+    -- Gitsigns.nvim
+    DiffAdd = {
+        fg = blue,
+    },
 
-   DiffAdded = {
-      fg = green,
-   },
+    DiffAdded = {
+        fg = green,
+    },
 
-   DiffChange = {
-      fg = light_grey,
-   },
+    DiffChange = {
+        fg = light_grey,
+    },
 
-   DiffChangeDelete = {
-      fg = red,
-   },
+    DiffChangeDelete = {
+        fg = red,
+    },
 
-   DiffModified = {
-      fg = orange,
-   },
+    DiffModified = {
+        fg = orange,
+    },
 
-   DiffDelete = {
-      fg = red,
-   },
+    DiffDelete = {
+        fg = red,
+    },
 
-   DiffRemoved = {
-      fg = red,
-   },
+    DiffRemoved = {
+        fg = red,
+    },
 
-   -- Indent blankline
-   IndentBlanklineChar = { fg = line },
-   IndentBlanklineSpaceChar = { fg = line },
+    -- Indent blankline
+    IndentBlanklineChar = { fg = line },
+    IndentBlanklineSpaceChar = { fg = line },
 
-   -- Lsp Diagnostics
-   DiagnosticHint = { fg = purple },
-   DiagnosticError = { fg = red },
-   DiagnosticWarn = { fg = yellow },
-   DiagnosticInformation = { fg = green },
+    -- Lsp Diagnostics
+    DiagnosticHint = { fg = purple },
+    DiagnosticError = { fg = red },
+    DiagnosticWarn = { fg = yellow },
+    DiagnosticInformation = { fg = green },
 
-   -- whichkey
-   WhichKey = { fg = blue },
-   WhichKeySeparator = { fg = light_grey },
-   WhichKeyDesc = { fg = red },
-   WhichKeyGroup = { fg = green },
-   WhichKeyValue = { fg = green },
+    -- whichkey
+    WhichKey = { fg = blue },
+    WhichKeySeparator = { fg = light_grey },
+    WhichKeyDesc = { fg = red },
+    WhichKeyGroup = { fg = green },
+    WhichKeyValue = { fg = green },
 
-   -- packer
-   packerPackageName = { fg = red },
+    -- packer
+    packerPackageName = { fg = red },
 
-   -- vim-matchup
-   MatchWord = {
-      fg = black,
-      bg = white,
-   },
-   MatchParen = { link = "MatchWord" },
+    -- vim-matchup
+    MatchWord = {
+        fg = black,
+        bg = white,
+    },
+    MatchParen = { link = "MatchWord" },
 
-   MatchWordCur = { },
-   MatchParenCur = { link = "MatchWordCur" },
+    MatchWordCur = {},
+    MatchParenCur = { link = "MatchWordCur" },
 }

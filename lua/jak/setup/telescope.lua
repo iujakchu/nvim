@@ -1,19 +1,19 @@
 local telescope = require "telescope"
 telescope.setup {
-   extensions = {
-      file_browser = {
-         theme = "ivy",
-      },
-   },
+    extensions = {
+        file_browser = {
+            theme = "ivy",
+        },
+    },
 }
 require("neoclip").setup()
 require("project_nvim").setup {
-   manual_mode = true,
-   update_cwd = true,
-   update_focused_file = {
-      enable = true,
-      update_cwd = true,
-   },
+    manual_mode = true,
+    update_cwd = true,
+    update_focused_file = {
+        enable = true,
+        update_cwd = true,
+    },
 }
 telescope.load_extension "emoji"
 telescope.load_extension "neoclip"

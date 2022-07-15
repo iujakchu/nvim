@@ -1,5 +1,5 @@
 local map = function(a, b)
-   vim.keymap.set("n", a, b, { silent = true })
+    vim.keymap.set("n", a, b, { silent = true })
 end
 map("1", ":Neorg gtd capture<CR>")
 map("2", ":Neorg gtd edit<CR>")
