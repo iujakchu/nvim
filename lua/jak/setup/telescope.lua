@@ -13,17 +13,8 @@ telescope.setup {
     },
 }
 require("neoclip").setup()
-require("project_nvim").setup {
-    manual_mode = false,
-    update_cwd = true,
-    update_focused_file = {
-        enable = true,
-        update_cwd = true,
-    },
-}
 telescope.load_extension "emoji"
 telescope.load_extension "neoclip"
-telescope.load_extension "projects"
 telescope.load_extension "file_browser"
 telescope.load_extension "ui-select"
 telescope.load_extension "luasnip"

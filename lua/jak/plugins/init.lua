@@ -139,7 +139,6 @@ local plugins = {
             "benfowler/telescope-luasnip.nvim",
             "xiyaowong/telescope-emoji.nvim",
             "AckslD/nvim-neoclip.lua",
-            "ahmedkhalf/project.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
             "nvim-telescope/telescope-file-browser.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
@@ -163,10 +162,10 @@ local plugins = {
                 }
             end)
             vim.keymap.set("n", "<leader><leader>", ":Telescope help_tags<CR>")
-            vim.keymap.set("n", "<leader>p", ":Telescope projects<CR>")
             vim.keymap.set("n", "<leader>n", ":Telescope neoclip<CR>")
             vim.keymap.set("n", "<leader>j", ":Telescope emoji<CR>")
             vim.keymap.set("n", "<leader>,", ":Telescope file_browser<CR>")
+            vim.keymap.set("n", "<leader>fp", ":Telescope repo list<CR>")
         end,
     },
     -- TODO: try this
@@ -430,6 +429,9 @@ local plugins = {
                 '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
                 { noremap = true }
             )
+            vim.api.nvim_command [[ hi def link LspReferenceText Search ]]
+            vim.api.nvim_command [[ hi def link LspReferenceWrite Search ]]
+            vim.api.nvim_command [[ hi def link LspReferenceRead Search ]]
         end,
     },
 }
