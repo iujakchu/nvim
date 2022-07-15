@@ -1,5 +1,5 @@
 local opt = {
-    clipboard = "unnamed",
+    clipboard = "unnamed,unnamedplus",
     ruler = false,
     mouse = "a",
     wildignorecase = true,
@@ -27,7 +27,7 @@ local opt = {
     undofile = true,
     tabstop = 4,
 
-    -- whichwrap = "h,l",
+    whichwrap = "h,l",
 }
 for key, value in pairs(opt) do
     vim.o[key] = value

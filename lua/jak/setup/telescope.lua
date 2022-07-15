@@ -1,5 +1,11 @@
 local telescope = require "telescope"
 telescope.setup {
+    defaults = {
+        prompt_prefix = " ",
+        selection_caret = " ",
+        path_display = { "smart" },
+        file_ignore_patterns = { ".git/", "node_modules" },
+    },
     extensions = {
         file_browser = {
             theme = "ivy",
@@ -8,7 +14,7 @@ telescope.setup {
 }
 require("neoclip").setup()
 require("project_nvim").setup {
-    manual_mode = true,
+    manual_mode = false,
     update_cwd = true,
     update_focused_file = {
         enable = true,

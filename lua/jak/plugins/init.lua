@@ -415,6 +415,23 @@ local plugins = {
         end,
     },
     { "elkowar/yuck.vim" },
+    {
+        "RRethy/vim-illuminate",
+        config = function()
+            vim.api.nvim_set_keymap(
+                "n",
+                "<a-n>",
+                '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>',
+                { noremap = true }
+            )
+            vim.api.nvim_set_keymap(
+                "n",
+                "<a-p>",
+                '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
+                { noremap = true }
+            )
+        end,
+    },
 }
 packer.startup(function(use)
     for _, v in ipairs(plugins) do

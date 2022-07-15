@@ -61,6 +61,14 @@ local servers = {
     rnix = { capabilities = capabilities },
     cmake = { capabilities = capabilities },
 }
+local on_attach = function(client)
+    local status_ok, illuminate = pcall(require, "illuminate")
+    if not status_ok then
+        return
+    end
+    illuminate.on_attach(client)
+end
 for client, setup in pairs(servers) do
+    setup = vim.tbl_deep_extend("force", setup, { on_attach = on_attach })
     require("lspconfig")[client].setup(setup)
 end
