@@ -434,6 +434,7 @@ local plugins = {
             vim.api.nvim_command [[ hi def link LspReferenceRead Search ]]
         end,
     },
+    { "airblade/vim-rooter" },
 }
 packer.startup(function(use)
     for _, v in ipairs(plugins) do
