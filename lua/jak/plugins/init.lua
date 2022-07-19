@@ -140,6 +140,7 @@ local plugins = {
             "xiyaowong/telescope-emoji.nvim",
             "AckslD/nvim-neoclip.lua",
             "nvim-telescope/telescope-ui-select.nvim",
+            "chip/telescope-software-licenses.nvim",
             "nvim-telescope/telescope-file-browser.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
             "LinArcX/telescope-env.nvim",
@@ -165,6 +166,7 @@ local plugins = {
             vim.keymap.set("n", "<leader>j", ":Telescope emoji<CR>")
             vim.keymap.set("n", "<leader>,", ":Telescope file_browser<CR>")
             vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>")
+            vim.keymap.set("n", "<leader>fl", ":Telescope software-licenses find<CR>")
         end,
     },
     {
