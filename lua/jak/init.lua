@@ -2,6 +2,7 @@ require("jak.core.bootstrap").bootstrap_impatient()
 --FIX: should get rid of nvchad settings
 require "jak.opt"
 require "jak.mappings"
+require "jak.neovide"
 
 --HACK: tmp workaround for MatchParen highlight group
 vim.schedule(function()
