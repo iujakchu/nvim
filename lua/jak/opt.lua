@@ -26,7 +26,7 @@ local opt = {
     showmode = false,
     undofile = true,
     tabstop = 4,
-
+    shell = "nu",
     whichwrap = "h,l",
 }
 for key, value in pairs(opt) do
