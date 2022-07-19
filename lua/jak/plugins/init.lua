@@ -32,18 +32,9 @@ local plugins = {
             }
             vim.keymap.set("n", "\\", ":NeorgStart<CR>")
         end,
-        requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
+        requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope", "max397574/neorg-kanban" },
     },
-    { "max397574/neorg-kanban" },
     { "xiyaowong/nvim-transparent" },
-    {
-        "ms-jpq/chadtree",
-        branch = "chad",
-        run = "python3 -m chadtree deps",
-        config = function()
-            vim.keymap.set("n", "<leader>e", ":CHADopen<CR>")
-        end,
-    },
     {
         "feline-nvim/feline.nvim",
         after = "nvim-web-devicons",
@@ -71,17 +62,6 @@ local plugins = {
             require "jak.setup.lspconfig"
         end,
     },
-
-    -- {
-    --    "williamboman/nvim-lsp-installer",
-    --    requires = {
-    --       "neovim/nvim-lspconfig",
-    --    },
-    --    config = function()
-    --       require "jak.setup.nvim-lsp-installer"
-    --    end,
-    -- },
-
     {
         "hrsh7th/nvim-cmp",
         requires = {
@@ -95,7 +75,6 @@ local plugins = {
             "Saecki/crates.nvim",
             "f3fora/cmp-spell",
             "L3MON4D3/LuaSnip",
-            -- "zbirenbaum/copilot-cmp",
             "saadparwaiz1/cmp_luasnip",
         },
         config = function()
@@ -282,6 +261,13 @@ local plugins = {
         end,
     },
     {
+        "sindrets/diffview.nvim",
+        config = function()
+            require("diffview").setup()
+            vim.keymap.set("n", ";d", ":DiffviewOpen<CR>")
+        end,
+    },
+    {
         "akinsho/toggleterm.nvim",
         config = function()
             require "jak.setup.toggleterm"
@@ -359,15 +345,6 @@ local plugins = {
             vim.keymap.set("n", "<leader>p", ":Glow<CR>", { silent = true })
         end,
     },
-    -- {
-    --    "zbirenbaum/copilot.lua",
-    --    event = "InsertEnter",
-    --    config = function()
-    --       vim.schedule(function()
-    --          require("copilot").setup()
-    --       end)
-    --    end,
-    -- },
     {
         "folke/trouble.nvim",
         requires = { "kyazdani42/nvim-web-devicons", "folke/lsp-colors.nvim" },
@@ -426,19 +403,31 @@ local plugins = {
         config = function()
             vim.api.nvim_set_keymap(
                 "n",
-                "<a-n>",
+                "<C-n>",
                 '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>',
                 { noremap = true }
             )
             vim.api.nvim_set_keymap(
                 "n",
-                "<a-p>",
+                "<C-p>",
                 '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
                 { noremap = true }
             )
             vim.api.nvim_command [[ hi def link LspReferenceText Search ]]
             vim.api.nvim_command [[ hi def link LspReferenceWrite Search ]]
             vim.api.nvim_command [[ hi def link LspReferenceRead Search ]]
+        end,
+    },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+        config = function()
+            vim.keymap.set("n", "<leader>e", ":NeoTreeFloatToggle<CR>")
         end,
     },
 }
