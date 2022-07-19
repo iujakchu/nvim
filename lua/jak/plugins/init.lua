@@ -142,7 +142,6 @@ local plugins = {
             "nvim-telescope/telescope-ui-select.nvim",
             "nvim-telescope/telescope-file-browser.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
-            "cljoly/telescope-repo.nvim",
             "LinArcX/telescope-env.nvim",
             "olacin/telescope-gitmoji.nvim",
             "LinArcX/telescope-ports.nvim",
@@ -165,7 +164,13 @@ local plugins = {
             vim.keymap.set("n", "<leader>n", ":Telescope neoclip<CR>")
             vim.keymap.set("n", "<leader>j", ":Telescope emoji<CR>")
             vim.keymap.set("n", "<leader>,", ":Telescope file_browser<CR>")
-            vim.keymap.set("n", "<leader>fp", ":Telescope repo list<CR>")
+            vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>")
+        end,
+    },
+    {
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("project_nvim").setup()
         end,
     },
     -- TODO: try this
@@ -434,7 +439,6 @@ local plugins = {
             vim.api.nvim_command [[ hi def link LspReferenceRead Search ]]
         end,
     },
-    { "airblade/vim-rooter" },
 }
 packer.startup(function(use)
     for _, v in ipairs(plugins) do
