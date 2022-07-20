@@ -18,7 +18,7 @@ local opt = {
     smartindent = true,
     confirm = true,
     title = true,
-    signcolumn = "yes:2",
+    signcolumn = "yes:3",
     splitbelow = true,
     splitright = true,
     termguicolors = true,
@@ -28,6 +28,7 @@ local opt = {
     tabstop = 4,
     shell = "nu",
     whichwrap = "h,l",
+    cursorline = false,
 }
 for key, value in pairs(opt) do
     vim.o[key] = value
@@ -56,10 +57,8 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
-vim.opt.linebreak = true
-vim.opt.showbreak = "  ﬌"
 vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr-o:hor20"
-vim.opt.list = true --show some hidden characters
+vim.opt.list = true
 vim.opt.listchars = {
     tab = "> ",
     nbsp = "␣",
@@ -74,8 +73,16 @@ vim.opt.fillchars = {
     vertleft = "╣",
     vertright = "╠",
     verthoriz = "╬",
+    fold = " ",
+    foldopen = "",
+    foldsep = " ",
+    foldclose = "",
 }
 vim.opt.timeoutlen = 300
-vim.opt.foldlevel = 10000
-vim.opt.foldmethod = "expr" -- use treesitter for folding
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldcolumn = "1"
+vim.opt.linebreak = true
+vim.opt.showbreak = "  ﬌"
+vim.cmd [[ set fo-=o]]

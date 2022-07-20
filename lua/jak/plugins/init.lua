@@ -85,6 +85,7 @@ local plugins = {
     -- TODO:
     {
         "simrat39/rust-tools.nvim",
+        ft = "rust",
         config = function()
             require("rust-tools").setup {}
             vim.keymap.set("n", "<leader>rr", require("rust-tools.runnables").runnables)
@@ -116,6 +117,7 @@ local plugins = {
         requires = {
             "nvim-lua/plenary.nvim",
             "benfowler/telescope-luasnip.nvim",
+            "mrjones2014/tldr.nvim",
             "xiyaowong/telescope-emoji.nvim",
             "AckslD/nvim-neoclip.lua",
             "nvim-telescope/telescope-ui-select.nvim",
@@ -146,6 +148,8 @@ local plugins = {
             vim.keymap.set("n", "<leader>,", ":Telescope file_browser<CR>")
             vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>")
             vim.keymap.set("n", "<leader>fl", ":Telescope software-licenses find<CR>")
+            vim.keymap.set("n", "<leader>ft", ":Telescope tldr<CR>")
+            vim.keymap.set("v", "<leader>rf", "<ESC>:Telescope refactoring refactors<CR>")
         end,
     },
     {
@@ -242,11 +246,11 @@ local plugins = {
         config = function()
             require("gitsigns").setup {
                 signs = {
-                    add = { hl = "DiffAdd", text = "🍰", numhl = "GitSignsAddNr" },
-                    change = { hl = "DiffChange", text = "🌸", numhl = "GitSignsChangeNr" },
-                    delete = { hl = "DiffDelete", text = "📛", numhl = "GitSignsDeleteNr" },
-                    topdelete = { hl = "DiffDelete", text = "💥", numhl = "GitSignsDeleteNr" },
-                    changedelete = { hl = "DiffChangeDelete", text = "🎈", numhl = "GitSignsChangeNr" },
+                    add = { hl = "DiffAdd", text = "➕", numhl = "GitSignsAddNr" },
+                    change = { hl = "DiffChange", text = "👻", numhl = "GitSignsChangeNr" },
+                    delete = { hl = "DiffDelete", text = "➖", numhl = "GitSignsDeleteNr" },
+                    topdelete = { hl = "DiffDelete", text = "😈", numhl = "GitSignsDeleteNr" },
+                    changedelete = { hl = "DiffChangeDelete", text = "💩", numhl = "GitSignsChangeNr" },
                 },
             }
         end,
@@ -430,6 +434,43 @@ local plugins = {
             vim.keymap.set("n", "<leader>e", ":NeoTreeFloatToggle<CR>")
         end,
     },
+    {
+        "kevinhwang91/nvim-ufo",
+        requires = "kevinhwang91/promise-async",
+        config = function()
+            vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+            vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+            require("ufo").setup {
+                provider_selector = function(bufnr, filetype)
+                    return { "treesitter", "indent" }
+                end,
+            }
+        end,
+    },
+    {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-treesitter/nvim-treesitter" },
+        },
+        config = function()
+            require("refactoring").setup {
+                prompt_func_return_type = {
+                    cpp = true,
+                    hpp = false,
+                    cxx = false,
+                },
+                prompt_func_param_type = {
+                    cpp = true,
+                    hpp = false,
+                    cxx = false,
+                },
+                printf_statements = {},
+                print_var_statements = {},
+            }
+        end,
+    },
+    { "marko-cerovac/material.nvim" },
 }
 packer.startup(function(use)
     for _, v in ipairs(plugins) do

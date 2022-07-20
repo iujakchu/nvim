@@ -20,17 +20,17 @@ map("n", "<leader>-", ":-tabnext<CR>")
 map("n", "<leader>=", ":+tabnext<CR>")
 
 map("n", "<rightmouse>", "<cmd>lua vim.lsp.buf.definition()<CR>")
-map("i", "<A-h>", "<Left>")
+--[[ map("i", "<A-h>", "<Left>")
 map("i", "<A-j>", "<Down>")
 map("i", "<A-l>", "<Right>")
-map("i", "<A-k>", "<Up>")
+map("i", "<A-k>", "<Up>") ]]
 map("i", "<A-a>", "<Esc>^i")
 map("i", "<A-e>", "<End>")
 
-map("n", "<A-j>", "<C-w>j")
-map("n", "<A-k>", "<C-w>k")
-map("n", "<A-h>", "<C-w>h")
-map("n", "<A-l>", "<C-w>l")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-l>", "<C-w>l")
 
 map("n", "<leader>fa", "zM")
 map("n", "<leader>fo", "zR")
