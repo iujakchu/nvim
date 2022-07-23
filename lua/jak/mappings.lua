@@ -32,6 +32,12 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
 
+-- NOTE:try another key to lead key
+map("n", ";j", "<C-w>-")
+map("n", ";k", "<C-w>+")
+map("n", ";h", "<C-w><")
+map("n", ";l", "<C-w>>")
+
 map("n", "<leader>fa", "zM")
 map("n", "<leader>fo", "zR")
 
