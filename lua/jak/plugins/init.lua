@@ -1,7 +1,6 @@
 local packer = require "packer"
 local plugins = {
     { "wbthomason/packer.nvim" },
-    { "nathom/filetype.nvim" },
     { "tpope/vim-surround" },
     { "tpope/vim-eunuch" },
     { "lewis6991/impatient.nvim" },
