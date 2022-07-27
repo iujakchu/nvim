@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local Map = {}
 vim.g["mapleader"] = " "
 Map.general = {
@@ -57,7 +56,6 @@ Map.lspconfig = {
         ["<leader>q"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "loc diag" },
     },
 }
-cmd "silent! command LuaSnipEdit lua require('luasnip.loaders.from_lua').edit_snippet_files()"
 local wk = require "which-key"
 local default_options = {
     mode = "n", -- NORMAL mode
