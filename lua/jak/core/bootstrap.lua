@@ -17,9 +17,7 @@ end
 
 function M.bootstrap_impatient()
     local present, impatient = pcall(require, "impatient")
-    if not present then
-        fetch("lewis6991", "impatient.nvim")
-    else
+    if present then
         impatient.enable_profile()
     end
 end
@@ -44,11 +42,13 @@ function M.bootstrap_whichkey()
     if not present then
         fetch("max397574", "which-key.nvim")
     end
+    require("jak.mappings").map "general"
 end
 
 function M.bootstrap()
+    M.bootstrap_whichkey()
     M.bootstrap_packer()
     M.bootstrap_impatient()
-    M.bootstrap_whichkey()
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e222a" })
 end
 return M

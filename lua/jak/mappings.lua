@@ -56,22 +56,41 @@ Map.lspconfig = {
         ["<leader>q"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "loc diag" },
     },
 }
-local wk = require "which-key"
-local default_options = {
-    mode = "n", -- NORMAL mode
-    -- prefix: use "<leader>f" for example for mapping everything related to finding files
-    -- the prefix is prepended to every mapping part of `mappings`
-    prefix = "",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
-}
-for _, v in pairs(Map) do
-    for ik, iv in pairs(v) do
-        local options = vim.tbl_deep_extend("force", default_options, { mode = ik })
-        for iik, iiv in pairs(iv) do
-            wk.register({ [iik] = iiv }, options)
+local M = {}
+function M.map(space)
+    local wk = require "which-key"
+    local default_options = {
+        mode = "n", -- NORMAL mode
+        -- prefix: use "<leader>f" for example for mapping everything related to finding files
+        -- the prefix is prepended to every mapping part of `mappings`
+        prefix = "",
+        buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+        silent = true, -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = false, -- use `nowait` when creating keymaps
+    }
+    if space == nil then
+        for i, v in pairs(Map) do
+            if i ~= "general" then
+                for ik, iv in pairs(v) do
+                    local options = vim.tbl_deep_extend("force", default_options, { mode = ik })
+                    for iik, iiv in pairs(iv) do
+                        wk.register({ [iik] = iiv }, options)
+                    end
+                end
+            end
+        end
+    elseif space == "general" then
+        for i, v in pairs(Map) do
+            if i == space then
+                for ik, iv in pairs(v) do
+                    local options = vim.tbl_deep_extend("force", default_options, { mode = ik })
+                    for iik, iiv in pairs(iv) do
+                        wk.register({ [iik] = iiv }, options)
+                    end
+                end
+            end
         end
     end
 end
+return M
