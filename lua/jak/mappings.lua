@@ -58,3 +58,23 @@ Map.lspconfig = {
     },
 }
 cmd "silent! command LuaSnipEdit lua require('luasnip.loaders.from_lua').edit_snippet_files()"
+local wk = require "which-key"
+local default_options = {
+    mode = "n", -- NORMAL mode
+    -- prefix: use "<leader>f" for example for mapping everything related to finding files
+    -- the prefix is prepended to every mapping part of `mappings`
+    prefix = "",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = false, -- use `nowait` when creating keymaps
+}
+for _, v in pairs(Map) do
+    for ik, iv in pairs(v) do
+        local options = vim.tbl_deep_extend("force", default_options, { mode = ik })
+        -- wk.register(iv, options)
+        for iik, iiv in pairs(iv) do
+            vim.keymap.set(ik, iik, iiv)
+        end
+    end
+end
