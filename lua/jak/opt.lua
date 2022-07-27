@@ -1,7 +1,8 @@
 local opt = {
     clipboard = "unnamed,unnamedplus",
     ruler = false,
-    mouse = "a",
+    showcmd = false,
+    mouse = "n",
     wildignorecase = true,
     swapfile = false,
     completeopt = "menuone,noselect",
@@ -26,9 +27,12 @@ local opt = {
     showmode = false,
     undofile = true,
     tabstop = 4,
-    shell = "nu",
+    -- waiting for treesitter support of nushell
+    shell = "zsh",
     whichwrap = "h,l",
     cursorline = false,
+    cmdheight = 0,
+    virtualedit = "block",
 }
 for key, value in pairs(opt) do
     vim.o[key] = value
@@ -85,4 +89,3 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldcolumn = "1"
 vim.opt.linebreak = true
 vim.opt.showbreak = "  ﬌"
-vim.cmd [[ set fo-=o]]

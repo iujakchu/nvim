@@ -1,11 +1,10 @@
-local packer = require("jak.core.bootstrap").bootstrap_packer()
+local packer = require "packer"
 local plugins = {
     { "wbthomason/packer.nvim" },
     { "nathom/filetype.nvim" },
     { "tpope/vim-surround" },
     { "tpope/vim-eunuch" },
     { "lewis6991/impatient.nvim" },
-    -- TODO:
     {
         "nvim-neorg/neorg",
         config = function()
@@ -30,11 +29,10 @@ local plugins = {
                     ["external.kanban"] = {},
                 },
             }
-            vim.keymap.set("n", "\\", ":NeorgStart<CR>")
+            vim.keymap.set("n", "\\\\", ":NeorgStart<CR>")
         end,
         requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope", "max397574/neorg-kanban" },
     },
-    { "xiyaowong/nvim-transparent" },
     {
         "feline-nvim/feline.nvim",
         after = "nvim-web-devicons",
@@ -91,7 +89,6 @@ local plugins = {
             vim.keymap.set("n", "<leader>rr", require("rust-tools.runnables").runnables)
         end,
     },
-
     {
         "windwp/nvim-autopairs",
         config = function()
@@ -219,7 +216,7 @@ local plugins = {
         end,
     },
     {
-        "norcalli/nvim-colorizer.lua",
+        "NvChad/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup()
         end,
@@ -288,7 +285,7 @@ local plugins = {
     },
     { "antoinemadec/FixCursorHold.nvim" },
     {
-        "folke/which-key.nvim",
+        "max397574/which-key.nvim",
         config = function()
             require("which-key").setup {
                 -- your configuration comes here
@@ -346,7 +343,7 @@ local plugins = {
         "ellisonleao/glow.nvim",
         ft = "markdown",
         config = function()
-            vim.keymap.set("n", "<leader>p", ":Glow<CR>", { silent = true })
+            vim.keymap.set("n", "<leader>pg", ":Glow<CR>", { silent = true })
         end,
     },
     {
@@ -477,6 +474,46 @@ local plugins = {
         end,
     },
     { "marko-cerovac/material.nvim" },
+    {
+        "karb94/neoscroll.nvim",
+        config = function()
+            require("neoscroll").setup()
+        end,
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+            vim.g.mkdp_open_to_the_world = 0
+            vim.g.mkdp_browser = "firefox"
+            vim.keymap.set("n", "<leader>pp", ":MarkdownPreviewToggle<CR>", { silent = true })
+        end,
+        ft = { "markdown" },
+    },
+    {
+        "olimorris/persisted.nvim",
+        --module = "persisted", -- For lazy loading
+        config = function()
+            require("persisted").setup {
+                save_dir = vim.fn.expand(vim.fn.stdpath "data" .. "/sessions/"), -- directory where session files are saved
+                command = "VimLeavePre", -- the autocommand for which the session is saved
+                use_git_branch = false, -- create session files based on the branch of the git enabled repository
+                autosave = true, -- automatically save session files when exiting Neovim
+                autoload = true, -- automatically load the session for the cwd on Neovim startup
+                allowed_dirs = nil, -- table of dirs that the plugin will auto-save and auto-load from
+                ignored_dirs = nil, -- table of dirs that are ignored when auto-saving and auto-loading
+                before_save = nil, -- function to run before the session is saved to disk
+                after_save = nil, -- function to run after the session is saved to disk
+                after_source = nil, -- function to run after the session is sourced
+                telescope = { -- options for the telescope extension
+                    before_source = nil, -- function to run before the session is sourced via telescope
+                    after_source = nil, -- function to run after the session is sourced via telescope
+                },
+            }
+            require("telescope").load_extension "persisted" -- To load the telescope extension
+        end,
+    },
 }
 packer.startup(function(use)
     for _, v in ipairs(plugins) do
