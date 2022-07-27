@@ -56,3 +56,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
     pattern = "*",
     command = "set fo-=o",
 })
+--HACK: tmp workaround for MatchParen highlight group
+vim.schedule(function()
+    vim.cmd "hi clear MatchWord"
+    vim.cmd "hi clear MatchParen"
+    vim.cmd "hi MatchParen guibg=LightRed"
+end)
