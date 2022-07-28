@@ -50,7 +50,7 @@ local plugins = {
                     rust = "cargo run",
                 },
             }
-            vim.keymap.set("n", "<F1>", ":RunCode<CR>", { silent = false })
+            vim.keymap.set("n", "<C-R>", ":RunCode<CR>", { silent = false })
         end,
     },
     {
@@ -73,6 +73,7 @@ local plugins = {
             "f3fora/cmp-spell",
             "L3MON4D3/LuaSnip",
             "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
         },
         config = function()
             require "jak.setup.cmp"
@@ -175,13 +176,6 @@ local plugins = {
         end,
     },
     {
-        "simrat39/symbols-outline.nvim",
-        config = function()
-            require "jak.setup.symbols-outline"
-        end,
-    },
-
-    {
         "p00f/nvim-ts-rainbow",
         config = function()
             require "jak.setup.nvim-ts-rainbow"
@@ -264,7 +258,7 @@ local plugins = {
         "sindrets/diffview.nvim",
         config = function()
             require("diffview").setup()
-            vim.keymap.set("n", ";d", ":DiffviewOpen<CR>")
+            vim.keymap.set("n", "\\d", ":DiffviewOpen<CR>")
         end,
     },
     {
@@ -297,8 +291,8 @@ local plugins = {
         "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            vim.keymap.set("n", "<TAB>", ":BufferLineCycleNext<CR>")
-            vim.keymap.set("n", "<S-TAB>", ":BufferLineCyclePrev<CR>")
+            vim.keymap.set("n", "<TAB>", ":bnext<CR>")
+            vim.keymap.set("n", "<S-TAB>", ":bNext<CR>")
             require("bufferline").setup()
         end,
     },
@@ -335,14 +329,46 @@ local plugins = {
         end,
     },
     {
-        "ray-x/lsp_signature.nvim",
-        config = function() end,
-    },
-    {
         "ellisonleao/glow.nvim",
         ft = "markdown",
         config = function()
             vim.keymap.set("n", "<leader>pg", ":Glow<CR>", { silent = true })
+        end,
+    },
+    -- TODO: try to use lspsaga's floaterm
+    {
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = function()
+            local saga = require "lspsaga"
+            saga.init_lsp_saga {
+                symbol_in_winbar = {
+                    in_custom = true,
+                    click_support = function(node, clicks, button, modifiers)
+                        -- To see all avaiable details: vim.pretty_print(node)
+                        local st = node.range.start
+                        local en = node.range["end"]
+                        if button == "l" then
+                            if clicks == 2 then
+                            -- double left click to do nothing
+                            else -- jump to node's starting line+char
+                                vim.fn.cursor(st.line + 1, st.character + 1)
+                            end
+                        elseif button == "r" then
+                            if modifiers == "s" then
+                                print "lspsaga" -- shift right click to print "lspsaga"
+                            end -- jump to node's ending line+char
+                            vim.fn.cursor(en.line + 1, en.character + 1)
+                        elseif button == "m" then
+                            -- middle click to visual select node
+                            vim.fn.cursor(st.line + 1, st.character + 1)
+                            vim.cmd "normal v"
+                            vim.fn.cursor(en.line + 1, en.character + 1)
+                        end
+                    end,
+                },
+            }
+            vim.keymap.set("n", "<leader>s", ":LSoutlineToggle<CR>", { silent = true, noremap = true })
         end,
     },
     {
@@ -513,10 +539,16 @@ local plugins = {
             require("telescope").load_extension "persisted" -- To load the telescope extension
         end,
     },
+    {
+        "max397574/colortils.nvim",
+        cmd = "Colortils",
+        config = function()
+            require("colortils").setup()
+        end,
+    },
 }
 packer.startup(function(use)
     for _, v in ipairs(plugins) do
         use(v)
     end
 end)
---[[ require "jak.plugins.mappings" ]]
