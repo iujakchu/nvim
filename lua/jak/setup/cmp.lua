@@ -149,7 +149,6 @@ cmp.setup {
             vim_item.menu = ({
                 luasnip = "[Snippet]",
                 nvim_lsp = "[LSP]",
-                -- copilot = "[cop]",
                 crates = "[crates]",
                 buffer = "[Buffer]",
                 path = "[Path]",
@@ -160,7 +159,6 @@ cmp.setup {
     sources = {
         { name = "luasnip" },
         { name = "nvim_lsp" },
-        -- { name = "copilot" },
         { name = "buffer" },
         { name = "nvim_lua" },
         { name = "path" },
@@ -175,4 +173,4 @@ cmp.setup {
     },
 }
 require("lsp_signature").setup {}
-require("luasnip.loaders.from_lua").lazy_load {}
+require("luasnip.loaders.from_lua").lazy_load { paths = vim.fn.stdpath "config" .. "/snippets" }
