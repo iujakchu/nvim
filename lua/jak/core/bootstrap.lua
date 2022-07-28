@@ -44,12 +44,11 @@ function M.bootstrap_whichkey()
         fetch("max397574", "which-key.nvim")
         vim.cmd "packadd which-key.nvim"
     end
-    require("jak.mappings").map "general"
 end
 
 local function bootstrap()
-    M.bootstrap_whichkey()
     M.bootstrap_packer()
+    M.bootstrap_whichkey()
     M.bootstrap_impatient()
 end
 bootstrap()

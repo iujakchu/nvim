@@ -3,5 +3,5 @@ require("jak.core.bootstrap")
 require "jak.neovide"
 require "jak.opt"
 require "jak.plugins"
-require("jak.mappings").map()
+require("jak.mappings")
 require "jak.autocmd"

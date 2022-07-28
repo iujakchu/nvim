@@ -58,8 +58,7 @@ Map.lspconfig = {
         ["<leader>q"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "loc diag" },
     },
 }
-local M = {}
-function M.map(space)
+local function map()
     local wk = require "which-key"
     local default_options = {
         mode = "n", -- NORMAL mode
@@ -71,28 +70,13 @@ function M.map(space)
         noremap = true, -- use `noremap` when creating keymaps
         nowait = false, -- use `nowait` when creating keymaps
     }
-    if space == nil then
         for i, v in pairs(Map) do
-            if i ~= "general" then
                 for ik, iv in pairs(v) do
                     local options = vim.tbl_deep_extend("force", default_options, { mode = ik })
                     for iik, iiv in pairs(iv) do
                         wk.register({ [iik] = iiv }, options)
                     end
                 end
-            end
         end
-    elseif space == "general" then
-        for i, v in pairs(Map) do
-            if i == space then
-                for ik, iv in pairs(v) do
-                    local options = vim.tbl_deep_extend("force", default_options, { mode = ik })
-                    for iik, iiv in pairs(iv) do
-                        wk.register({ [iik] = iiv }, options)
-                    end
-                end
-            end
-        end
-    end
 end
-return M
+map()
