@@ -25,6 +25,7 @@ function M.bootstrap_packer()
     local present, packer = pcall(require, "packer")
     if not present then
         fetch("wbthomason", "packer.nvim")
+        vim.cmd "packadd packer.nvim"
         packer = require "packer"
     end
     packer.init {
@@ -41,14 +42,14 @@ function M.bootstrap_whichkey()
     local present, _ = pcall(require, "which-key")
     if not present then
         fetch("max397574", "which-key.nvim")
+        vim.cmd "packadd which-key.nvim"
     end
     require("jak.mappings").map "general"
 end
 
-function M.bootstrap()
+local function bootstrap()
     M.bootstrap_whichkey()
     M.bootstrap_packer()
     M.bootstrap_impatient()
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e222a" })
 end
-return M
+bootstrap()

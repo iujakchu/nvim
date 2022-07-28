@@ -1,4 +1,4 @@
-require("jak.core.bootstrap").bootstrap()
+require("jak.core.bootstrap")
 --FIX: should get rid of nvchad settings
 require "jak.neovide"
 require "jak.opt"
