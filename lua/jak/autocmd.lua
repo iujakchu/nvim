@@ -1,6 +1,6 @@
-local cmd = vim.cmd
-cmd "silent! command LuaSnipEdit lua require('luasnip.loaders.from_lua').edit_snippet_files()"
-
+vim.api.nvim_create_user_command("LuaSnipEdit", function()
+    require("luasnip.loaders.from_lua").edit_snippet_files()
+end, {})
 vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",
     callback = function()
