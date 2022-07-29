@@ -8,7 +8,7 @@ Map.general = {
         ["<leader>."] = { ":so %<CR>", "source current file" },
         ["n"] = { "nzz", "next item with focus" },
         ["N"] = { "Nzz", "previous item with focus" },
-        ["<leader>d"] = { ":bdelete<CR>", "delete current buffer" },
+        ["<leader>d"] = { ":Bdelete<CR>", "delete current buffer" },
         ["<C-t>"] = { ":tabe<CR>", "open a new tab" },
         ["<leader>-"] = { ":-tabnext<CR>", "jump to previous tab" },
         ["<leader>="] = { ":+tabnext<CR>", "jump to next tab" },
@@ -70,13 +70,13 @@ local function map()
         noremap = true, -- use `noremap` when creating keymaps
         nowait = false, -- use `nowait` when creating keymaps
     }
-        for i, v in pairs(Map) do
-                for ik, iv in pairs(v) do
-                    local options = vim.tbl_deep_extend("force", default_options, { mode = ik })
-                    for iik, iiv in pairs(iv) do
-                        wk.register({ [iik] = iiv }, options)
-                    end
-                end
+    for _, v in pairs(Map) do
+        for ik, iv in pairs(v) do
+            local options = vim.tbl_deep_extend("force", default_options, { mode = ik })
+            for iik, iiv in pairs(iv) do
+                wk.register({ [iik] = iiv }, options)
+            end
         end
+    end
 end
 map()
