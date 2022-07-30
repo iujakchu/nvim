@@ -18,6 +18,7 @@ parser_configs.norg_table = {
 require("nvim-treesitter.configs").setup {
     ensure_installed = {
         "rust",
+        "qmljs",
         "haskell",
         "fish",
         "javascript",

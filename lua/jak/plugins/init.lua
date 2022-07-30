@@ -546,7 +546,7 @@ local plugins = {
             require("colortils").setup()
         end,
     },
-    { "'famiu/bufdelete.nvim'" },
+    { "famiu/bufdelete.nvim" },
 }
 packer.startup(function(use)
     for _, v in ipairs(plugins) do
